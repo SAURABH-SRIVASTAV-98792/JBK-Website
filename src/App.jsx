@@ -1,8 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-
 import "./assets/index.css";
 import Navbar from "./Components/Navbar";
-
 import Services from "./Components/Services";
 import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
@@ -15,38 +13,34 @@ import Signin from "./Components/Signin";
 import { useState } from "react";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [dark, setDark] = useState(false);
+
   return (
     <>
-      <div className={`${darkMode ? "dark" : ""}`}>
-        <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col items-center justify-center">
-          <button
-            onClick={() => setDarkMode(!darkMode)}
-            className="m-4 px-4 py-2 rounded bg-gray-200 dark:bg-gray-700 dark:text-white"
-          >
-            {" "}
-            Toggle {darkMode ? "Light" : "Dark"}
-          </button>
-          <div className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen flex flex-col">
-            <Navbar />
-            <main>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/sectors" element={<Sectors />} />
-                <Route path="/career" element={<Career />} />
-                <Route path="/clients" element={<Clints />} />
-                <Route path="/solutions" element={<Soloutions />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/contact" element={<Signin />} />
-              </Routes>
-            </main>
+      <div
+        className={`min-h-screen flex flex-col transition-colors duration-500 ${
+          dark ? "bg-black text-white" : "bg-white text-black"
+        }`}
+      >
+        <Navbar dark={dark} setDark={setDark} />
 
-            <Footer />
-          </div>
-        </div>
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/sectors" element={<Sectors />} />
+            <Route path="/career" element={<Career />} />
+            <Route path="/clients" element={<Clints />} />
+            <Route path="/solutions" element={<Soloutions />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/signin" element={<Signin />} />
+          </Routes>
+        </main>
+
+        <Footer />
       </div>
     </>
   );
 }
+
 export default App;
