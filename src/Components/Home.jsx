@@ -1,72 +1,97 @@
 import Crousel from "./Crousel";
+
 function Home() {
   return (
     <>
-      {/* page-3 */}
+      {/* 🔹 Hero Section with Crousel */}
+      <section>
+        <Crousel className="w-full" />
+      </section>
 
-      <Crousel className="w-full" />
+      {/* 🔹 Why Kririt India */}
+      <section className="bg-violet-400 text-white py-16 px-8 md:px-20">
+        <div className="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              WHY KRIRIT INDIA?
+            </h1>
+            <p className="text-lg md:text-xl leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
+              fugit et commodi nemo. Aliquid nisi architecto, alias numquam
+              tempore exercitationem?
+            </p>
+          </div>
+          <img
+            src="/Images/why-kririt-india.jpg"
+            alt="Why Kririt India"
+            className="rounded-2xl shadow-lg w-full object-cover"
+          />
+        </div>
+      </section>
 
-      {/* page-6 */}
+      {/* 🔹 Features Section */}
+      <section className="bg-cyan-300 text-white py-16 px-8 md:px-20">
+        <div className="grid md:grid-cols-3 gap-8 text-center text-black">
+          {[
+            "Reliability",
+            "Scalability",
+            "Time Saving",
+            "Secure & Confidential",
+            "Enhanced Efficiency",
+          ].map((feature, index) => (
+            <div
+              key={index}
+              className="bg-white/10 rounded-2xl p-6 shadow-md hover:scale-105 transition"
+            >
+              <p className="text-xl font-semibold">{feature}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-      <div className="border bg-violet-700">
-        <h1 className="text-4xl ">WHY KRIRIT INDIA?</h1>
+      {/* 🔹 Products Title */}
+      <section className="py-16">
+        <h1 className="text-5xl font-bold text-center mb-10 text-gray-800">
+          PRODUCTS WE OFFER
+        </h1>
+      </section>
 
-        <p className="text-2xl w-1/2 pr-8 ">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Autem fugit
-          et commodi nemo. Aliquid nisi architecto, alias numquam tempore
-          exercitationem?
-        </p>
-        <img
-          src="/Images/why-kririt-india.jpg"
-          alt=""
-          className="ml-auto w-100 h-100"
-        />
-      </div>
-
-      {/* page-7 */}
-
-      <div className="border grid grid-cols-2 grid-rows-2 text-2xl gap-y-20 bg-cyan-600">
-        <p>Reliability</p>
-        <p>Scalability</p>
-        <p>Time saving</p>
-        <p>Secure and confidential</p>
-        <p>Enhanced efficency</p>
-      </div>
-
-      {/* page-8 */}
-
-      <div className="border border-amber-300 p-10">
-        <h1 className="text-5xl text-center">PRODUCT WE OFFER</h1>
-      </div>
-
-      {/* page-9 */}
-
-      <div className="border">
-        <h1 className="text-4xl">DIGITAL PARIKSHA</h1>
-        <p className="text-2xl">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis
-          exercitationem voluptate cupiditate consectetur unde deserunt, vitae
-          optio! Nisi, aut eveniet?
-        </p>
-        <button className="bg-blue-400 text-white m-10 text-3xl">
-          LEARN NOW
-        </button>
-      </div>
-
-      {/* page-10 */}
-
-      <div className="border">
-        <h1 className="text-4xl">DIGITAL SCCORING</h1>
-        <p className="text-2xl">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt
-          adipisci, repudiandae quae accusamus ab est nisi commodi velit unde
-          fugiat?
-        </p>
-        <button className="bg-blue-400 text-white m-10 text-3xl">
-          LEARN NOW
-        </button>
-      </div>
+      {/* 🔹 Products Section */}
+      <section className="grid md:grid-cols-2 gap-10 px-8 md:px-20 pb-20">
+        {[
+          {
+            title: "DIGITAL PARIKSHA",
+            desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis exercitationem voluptate cupiditate consectetur unde deserunt.",
+          },
+          {
+            title: "DIGITAL SCORING",
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt adipisci, repudiandae quae accusamus ab est nisi.",
+          },
+          {
+            title: "ONLINE LEARNING",
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias fugiat placeat qui dolore laudantium architecto.",
+          },
+          {
+            title: "SMART ANALYTICS",
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam doloremque deleniti voluptatibus praesentium minus.",
+          },
+        ].map((product, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-2xl shadow-lg p-8 flex flex-col justify-between hover:shadow-2xl transition"
+          >
+            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+              {product.title}
+            </h2>
+            <p className="text-lg text-gray-600 mb-6">{product.desc}</p>
+            <button className="self-start bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-xl text-lg font-medium transition">
+              LEARN NOW
+            </button>
+          </div>
+        ))}
+      </section>
     </>
   );
 }
+
 export default Home;
