@@ -9,7 +9,7 @@ function Home() {
       </section>
 
       {/* 🔹 Why Kririt India */}
-      <section className="bg-violet-400 text-white py-16 px-8 md:px-20">
+      <section className="bg-violet-500 text-white py-16 px-8 md:px-20 shadow-lg">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
@@ -30,7 +30,7 @@ function Home() {
       </section>
 
       {/* 🔹 Features Section */}
-      <section className="bg-cyan-300 text-white py-16 px-8 md:px-20">
+      <section className="bg-violet-300 text-white py-16 px-8 md:px-20">
         <div className="grid md:grid-cols-3 gap-8 text-center text-black">
           {[
             "Reliability",
@@ -41,7 +41,7 @@ function Home() {
           ].map((feature, index) => (
             <div
               key={index}
-              className="bg-white/10 rounded-2xl p-6 shadow-md hover:scale-105 transition"
+              className="bg-white/10 rounded-2xl p-6 shadow-md hover:scale-105 transition hover:bg-violet-700"
             >
               <p className="text-xl font-semibold">{feature}</p>
             </div>
@@ -84,7 +84,7 @@ function Home() {
               {product.title}
             </h2>
             <p className="text-lg text-gray-600 mb-6">{product.desc}</p>
-            <button className="self-start bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-xl text-lg font-medium transition">
+            <button className="self-start bg-violet-500 hover:bg-blue-600 text-white px-6 py-2 rounded-xl text-lg font-medium transition">
               LEARN NOW
             </button>
           </div>

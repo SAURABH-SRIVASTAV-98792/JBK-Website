@@ -37,18 +37,18 @@ function Sectors() {
   return (
     <>
       {/* Header */}
-      <div className="text-center text-5xl p-20 bg-gray-800 text-white">
+      <div className="text-center text-5xl p-20 bg-gray-800 text-white shadow-lg text-semibold">
         <h1>SECTORS WE SERVE</h1>
         <Link
           to="/"
-          className="hover:underline text-blue-400 text-2xl mt-4 inline-block"
+          className="hover:underline text-violet-400 text-2xl mt-4 inline-block text-semibold"
         >
           HOME
         </Link>
       </div>
 
       {/* 🔹 Circular Diagram Section */}
-      <div className="py-40 bg-violet-400">
+      <div className="py-40 bg-violet-500">
         <div className="relative w-[600px] h-[600px] mx-auto rounded-full">
           <svg className="absolute inset-0 w-full h-full pointer-events-none">
             {/* Lines connecting circles */}
@@ -104,7 +104,7 @@ function Sectors() {
 
           {/* Center Circle */}
           <div
-            className="absolute w-80 h-80 bg-red-500 rounded-full flex items-center justify-center text-white text-center text-xl font-bold"
+            className="absolute w-80 h-80 bg-violet-700 rounded-full flex items-center justify-center text-white text-center text-xl font-bold shadow-lg"
             style={{
               top: "50%",
               left: "50%",
@@ -116,7 +116,7 @@ function Sectors() {
 
           {/* Surrounding Circles */}
           <div
-            className="absolute w-48 h-48 bg-blue-500 rounded-full flex items-center justify-center text-center text-white font-semibold"
+            className="absolute w-48 h-48 bg-gray-500 rounded-full flex items-center justify-center text-center text-white font-semibold shadow-lg"
             style={{
               top: "0%",
               left: "50%",
@@ -126,7 +126,7 @@ function Sectors() {
             EDUCATION
           </div>
           <div
-            className="absolute w-48 h-48 bg-blue-500 rounded-full flex items-center justify-center text-center text-white font-semibold"
+            className="absolute w-48 h-48 bg-gray-500 shadow-lg rounded-full flex items-center justify-center text-center text-white font-semibold"
             style={{
               top: "25%",
               left: "100%",
@@ -136,7 +136,7 @@ function Sectors() {
             GOVERNMENT
           </div>
           <div
-            className="absolute w-48 h-48 bg-blue-500 rounded-full flex items-center justify-center text-center text-white font-semibold"
+            className="absolute w-48 h-48 bg-gray-500 shadow-lg rounded-full flex items-center justify-center text-center text-white font-semibold"
             style={{
               top: "75%",
               left: "100%",
@@ -146,7 +146,7 @@ function Sectors() {
             PRIVATE SECTOR
           </div>
           <div
-            className="absolute w-48 h-48 bg-blue-500 rounded-full flex items-center justify-center text-center text-white font-semibold"
+            className="absolute w-48 h-48 bg-gray-500 shadow-lg rounded-full flex items-center justify-center text-center text-white font-semibold"
             style={{
               top: "100%",
               left: "50%",
@@ -156,7 +156,7 @@ function Sectors() {
             HEALTH CARE
           </div>
           <div
-            className="absolute w-48 h-48 bg-blue-500 rounded-full flex items-center justify-center text-center text-white font-semibold"
+            className="absolute w-48 h-48 bg-gray-500 shadow-lg rounded-full flex items-center justify-center text-center text-white font-semibold"
             style={{
               top: "75%",
               left: "0%",
@@ -166,7 +166,7 @@ function Sectors() {
             COMMERCIAL
           </div>
           <div
-            className="absolute w-48 h-48 bg-blue-500 rounded-full flex items-center justify-center text-center text-white font-semibold"
+            className="absolute w-48 h-48 bg-gray-500 shadow-lg rounded-full flex items-center justify-center text-center text-white font-semibold"
             style={{
               top: "25%",
               left: "0%",
@@ -207,7 +207,7 @@ function Sectors() {
 
             {/* Text */}
             <div className="md:w-1/2 text-center md:text-left">
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              <h2 className="text-4xl font-bold text-violet-800 mb-4">
                 {sector.title}
               </h2>
               <p className="text-lg text-gray-600">{sector.desc}</p>

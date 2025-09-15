@@ -7,11 +7,11 @@ import DigiResult from "../pages/DigiResult";
 function Solutions() {
   return (
     <>
-      <div className="text-center text-5xl p-20 bg-orange-600 text-white">
+      <div className="text-center text-5xl p-20 bg-gray-500 text-white">
         <h1 className="font-bold">SOLUTIONS</h1>
         <Link
           to="/"
-          className="font-semibold inline-block mt-4 text-2xl text-blue-200 hover:underline"
+          className="font-semibold inline-block mt-4 text-2xl text-violet-900 hover:underline"
         >
           HOME
         </Link>

@@ -27,11 +27,11 @@ function Career() {
   return (
     <>
       {/* 🔹 Hero Section */}
-      <div className="text-center text-5xl p-20 bg-green-600 text-white">
+      <div className="text-center text-5xl p-20 bg-gray-600 text-white shadow-lg">
         <h1>CAREER</h1>
         <Link
           to="/"
-          className="inline-block mt-4 text-2xl text-blue-200 hover:underline"
+          className="inline-block mt-4 text-2xl text-violet-500 hover:underline"
         >
           HOME
         </Link>
@@ -65,7 +65,7 @@ function Career() {
 
             {/* Apply Button */}
             <div>
-              <button className="bg-green-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition">
+              <button className="bg-violet-600 text-white px-6 py-3 rounded-xl hover:bg-green-700 transition">
                 Apply Now
               </button>
             </div>
@@ -87,7 +87,7 @@ function Career() {
         </p>
         <Link
           to="/contact"
-          className="bg-green-600 text-white px-8 py-3 rounded-xl hover:bg-green-700 transition"
+          className="bg-violet-600 text-white px-8 py-3 rounded-xl hover:bg-green-700 transition"
         >
           Contact Us
         </Link>

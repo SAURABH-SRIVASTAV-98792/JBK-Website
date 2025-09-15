@@ -11,11 +11,11 @@ function Clients() {
   return (
     <>
       {/* Hero Section */}
-      <div className="text-center bg-purple-400 py-20 px-6">
+      <div className="text-center bg-gray-400 shadow-lg py-20 px-6">
         <h1 className="text-5xl font-bold text-white">Our Clients</h1>
         <Link
           to="/"
-          className="inline-block mt-4 text-2xl text-white hover:underline font-semibold"
+          className="inline-block mt-4 text-2xl text-violet-600 font-semibold hover:underline font-semibold"
         >
           HOME
         </Link>

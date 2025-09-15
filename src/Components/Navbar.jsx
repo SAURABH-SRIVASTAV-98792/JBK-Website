@@ -25,7 +25,7 @@ function Navbar({ dark, setDark }) {
       {/* 🔹 Top Info Bar */}
       <div
         className={`w-full ${
-          dark ? "bg-blue-400" : "bg-violet-500"
+          dark ? "bg-violet-700" : "bg-violet-600 shadow-lg"
         } text-white px-6 py-2 flex items-center justify-between text-sm`}
       >
         <div className="flex space-x-6">
@@ -57,7 +57,9 @@ function Navbar({ dark, setDark }) {
       {/* 🔹 Main Navigation Bar */}
       <nav
         className={`${
-          dark ? "bg-red-500 text-white" : "bg-gray-400 text-white"
+          dark
+            ? "bg-violet-500 text-white shadow-lg"
+            : "bg-violet-400 text-white shadow-lg"
         } px-6 py-3 flex items-center justify-between relative z-50`}
       >
         {/* Logo */}
