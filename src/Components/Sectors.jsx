@@ -37,8 +37,8 @@ function Sectors() {
   return (
     <>
       {/* Header */}
-      <div className="text-center text-5xl p-20 bg-gray-800 text-white shadow-lg text-semibold">
-        <h1>SECTORS WE SERVE</h1>
+      <div className="text-center text-5xl p-20 bg-gray-800 text-white shadow-lg text-semibold ">
+        <h1 className="hover:text-violet-400 text-center">SECTORS WE SERVE</h1>
         <Link
           to="/"
           className="hover:underline text-violet-400 text-2xl mt-4 inline-block text-semibold"
@@ -48,134 +48,12 @@ function Sectors() {
       </div>
 
       {/* 🔹 Circular Diagram Section */}
-      <div className="py-40 bg-violet-500">
-        <div className="relative w-[600px] h-[600px] mx-auto rounded-full">
-          <svg className="absolute inset-0 w-full h-full pointer-events-none">
-            {/* Lines connecting circles */}
-            <line
-              x1="300"
-              y1="300"
-              x2="300"
-              y2="60"
-              stroke="black"
-              strokeWidth="2"
-            />
-            <line
-              x1="300"
-              y1="300"
-              x2="520"
-              y2="150"
-              stroke="black"
-              strokeWidth="2"
-            />
-            <line
-              x1="300"
-              y1="300"
-              x2="520"
-              y2="450"
-              stroke="black"
-              strokeWidth="2"
-            />
-            <line
-              x1="300"
-              y1="300"
-              x2="300"
-              y2="540"
-              stroke="black"
-              strokeWidth="2"
-            />
-            <line
-              x1="300"
-              y1="300"
-              x2="80"
-              y2="450"
-              stroke="black"
-              strokeWidth="2"
-            />
-            <line
-              x1="300"
-              y1="300"
-              x2="80"
-              y2="150"
-              stroke="black"
-              strokeWidth="2"
-            />
-          </svg>
-
-          {/* Center Circle */}
-          <div
-            className="absolute w-80 h-80 bg-violet-700 rounded-full flex items-center justify-center text-white text-center text-xl font-bold shadow-lg"
-            style={{
-              top: "50%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            SECTORS WE SERVE
-          </div>
-
-          {/* Surrounding Circles */}
-          <div
-            className="absolute w-48 h-48 bg-gray-500 rounded-full flex items-center justify-center text-center text-white font-semibold shadow-lg"
-            style={{
-              top: "0%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            EDUCATION
-          </div>
-          <div
-            className="absolute w-48 h-48 bg-gray-500 shadow-lg rounded-full flex items-center justify-center text-center text-white font-semibold"
-            style={{
-              top: "25%",
-              left: "100%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            GOVERNMENT
-          </div>
-          <div
-            className="absolute w-48 h-48 bg-gray-500 shadow-lg rounded-full flex items-center justify-center text-center text-white font-semibold"
-            style={{
-              top: "75%",
-              left: "100%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            PRIVATE SECTOR
-          </div>
-          <div
-            className="absolute w-48 h-48 bg-gray-500 shadow-lg rounded-full flex items-center justify-center text-center text-white font-semibold"
-            style={{
-              top: "100%",
-              left: "50%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            HEALTH CARE
-          </div>
-          <div
-            className="absolute w-48 h-48 bg-gray-500 shadow-lg rounded-full flex items-center justify-center text-center text-white font-semibold"
-            style={{
-              top: "75%",
-              left: "0%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            COMMERCIAL
-          </div>
-          <div
-            className="absolute w-48 h-48 bg-gray-500 shadow-lg rounded-full flex items-center justify-center text-center text-white font-semibold"
-            style={{
-              top: "25%",
-              left: "0%",
-              transform: "translate(-50%, -50%)",
-            }}
-          >
-            COLLEGE
-          </div>
-        </div>
+      <div className="hover:bg-violet-400 ">
+        <img
+          src="Images/sectors we serve/sectors.png"
+          alt=""
+          className="mx-auto "
+        />
       </div>
 
       {/* 🔹 Features Section */}
@@ -202,7 +80,7 @@ function Sectors() {
             <img
               src={sector.img}
               alt={sector.title}
-              className="w-full md:w-1/2 h-auto rounded-xl shadow-lg object-cover"
+              className=" w-full md:w-1/2 h-auto rounded-xl shadow-lg object-cover  "
             />
 
             {/* Text */}
@@ -210,7 +88,7 @@ function Sectors() {
               <h2 className="text-4xl font-bold text-violet-800 mb-4">
                 {sector.title}
               </h2>
-              <p className="text-lg text-gray-600">{sector.desc}</p>
+              <p className="text-lg text-gray-600 text-xl">{sector.desc}</p>
             </div>
           </div>
         ))}
