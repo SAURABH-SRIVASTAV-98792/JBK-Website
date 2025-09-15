@@ -74,7 +74,7 @@ function Navbar({ dark, setDark }) {
               key={link.name}
               to={link.path}
               className={({ isActive }) =>
-                `hover:border-b-2 border-white transition ${
+                `hover:text-violet-600 hover:border-b-2 border-white transition ${
                   isActive ? "font-bold border-b-2" : ""
                 }`
               }
