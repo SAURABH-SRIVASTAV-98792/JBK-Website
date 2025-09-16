@@ -5,20 +5,11 @@ import { IoMdClose } from "react-icons/io";
 
 function Navbar({ dark, setDark }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [productOpen, setProductOpen] = useState(false);
+  const [solutionsOpen, setSolutionsOpen] = useState(false);
 
   const handleToggleDark = () => setDark(!dark);
   const toggleMenu = () => setMenuOpen(!menuOpen);
-
-  const navLinks = [
-    { name: "HOME", path: "/" },
-    { name: "SECTOR WE SERVE", path: "/sectors" },
-    { name: "CAREER", path: "/career" },
-    { name: "CLIENTS", path: "/clients" },
-    { name: "PRODUCTS", path: "/products" },
-    { name: "SOLUTIONS", path: "/solutions" },
-    { name: "CONTACT", path: "/contact" },
-    { name: "SIGN IN", path: "/signin" },
-  ];
 
   return (
     <>
@@ -68,20 +59,172 @@ function Navbar({ dark, setDark }) {
         </Link>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6 text-lg font-medium">
-          {navLinks.map((link) => (
-            <NavLink
-              key={link.name}
-              to={link.path}
-              className={({ isActive }) =>
-                `hover:text-violet-600 hover:border-b-2 border-white transition ${
-                  isActive ? "font-bold border-b-2" : ""
-                }`
-              }
-            >
-              {link.name}
-            </NavLink>
-          ))}
+        <div className="hidden md:flex space-x-6 text-lg font-medium items-center">
+          <NavLink to="/" className="hover:underline">
+            HOME
+          </NavLink>
+          <NavLink to="/sectors" className="hover:underline">
+            SECTORS WE SERVE
+          </NavLink>
+          <NavLink to="/Career" className="hover:underline">
+            CAREER
+          </NavLink>
+          <NavLink to="/clients" className="hover:underline">
+            CLIENTS
+          </NavLink>
+          {/* PRODUCT DROPDOWN */}
+          <div
+            className="relative"
+            onMouseEnter={() => setProductOpen(true)}
+            onMouseLeave={() => setProductOpen(false)}
+          >
+            <button className="hover:underline flex items-center">
+              PRODUCT ⬇
+            </button>
+            {productOpen && (
+              <div className="absolute top-10 left-0 bg-white text-black rounded-2xl shadow-2xl p-4 w-80 gap-3 animate-fadeIn">
+                <Link
+                  to="/pariksha"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">📂</span>
+                  <div>
+                    <p className="font-semibold">Digital Pariksha</p>
+                    <p className="text-sm text-gray-500">
+                      Manage end-to-end applications smartly
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  to="/evaluation"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">📂</span>
+                  <div>
+                    <p className="font-semibold">Digital Evaluation</p>
+                    <p className="text-sm text-gray-500">
+                      Manage end-to-end applications smartly
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  to="/scoring"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">📂</span>
+                  <div>
+                    <p className="font-semibold">Digital Scoring</p>
+                    <p className="text-sm text-gray-500">
+                      Manage end-to-end applications smartly
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  to="/gurukul"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">📂</span>
+                  <div>
+                    <p className="font-semibold">Digital Gurukul</p>
+                    <p className="text-sm text-gray-500">
+                      Manage end-to-end applications smartly
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
+          <div
+            className="relative"
+            onMouseEnter={() => setSolutionsOpen(true)}
+            onMouseLeave={() => setSolutionsOpen(false)}
+          >
+            <button className="hover:underline flex items-center">
+              SOLUTONS ⬇
+            </button>
+            {solutionsOpen && (
+              <div className="absolute top-10 left-0 bg-white text-black rounded-2xl shadow-2xl p-4 w-96 gap-3 animate-fadeIn">
+                <Link
+                  to="/paper"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">💡</span>
+                  <div>
+                    <p className="font-semibold">Question Paper Management</p>
+                    <p className="text-sm text-gray-500 text-xl">
+                      Browse all innovative solutions
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  to="/assessment"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">🎓</span>
+                  <div>
+                    <p className="font-semibold">Assessment Management</p>
+                    <p className="text-sm text-gray-500">
+                      Smart digital examination platform
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  to="/applications"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">🎓</span>
+                  <div>
+                    <p className="font-semibold">Application Management</p>
+                    <p className="text-sm text-gray-500">
+                      Smart digital examination platform
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  to="/allocation"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">🎓</span>
+                  <div>
+                    <p className="font-semibold">Allocation Management</p>
+                    <p className="text-sm text-gray-500">
+                      Smart digital examination platform
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  to="/marking"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">🎓</span>
+                  <div>
+                    <p className="font-semibold">DigiMarking</p>
+                    <p className="text-sm text-gray-500">
+                      Smart digital examination platform
+                    </p>
+                  </div>
+                </Link>
+                <Link
+                  to="/result"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">🎓</span>
+                  <div>
+                    <p className="font-semibold">DigiResult</p>
+                    <p className="text-sm text-gray-500">
+                      Smart digital examination platform
+                    </p>
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
+          <NavLink to="/contact" className="hover:underline">
+            CONTACT
+          </NavLink>
+          <NavLink to="/signin" className="hover:underline">
+            SIGN IN
+          </NavLink>
         </div>
 
         {/* Mobile Menu Button */}
@@ -93,34 +236,100 @@ function Navbar({ dark, setDark }) {
           {menuOpen ? <IoMdClose size={32} /> : <CiMenuFries size={32} />}
         </button>
       </nav>
-
-      {/* 🔹 Overlay */}
-      {menuOpen && (
-        <div
-          onClick={() => setMenuOpen(false)}
-          className="fixed inset-0 bg-black bg-opacity-50 z-40"
-        ></div>
-      )}
-
-      {/* 🔹 Mobile Sidebar Menu */}
+      {/* MOBILE SIDEBAR MENU */}
       <div
         className={`fixed top-0 right-0 w-2/3 h-full shadow-lg p-6 flex flex-col space-y-6
         transform transition-transform duration-300 ease-in-out
         ${menuOpen ? "translate-x-0" : "translate-x-full"}
-        ${dark ? "bg-gray-800 text-white" : "bg-red-500 text-white"}
+        ${dark ? "bg-gray-800 text-white" : "bg-violet-500 text-white"}
         z-50`}
       >
-        {navLinks.map((link) => (
-          <NavLink
-            key={link.name}
-            to={link.path}
-            className="hover:underline text-lg"
-            onClick={() => setMenuOpen(false)}
+        <NavLink to="/" onClick={() => setMenuOpen(false)}>
+          HOME
+        </NavLink>
+        <NavLink to="/sectors" onClick={() => setMenuOpen(false)}>
+          SECTOR WE SERVE
+        </NavLink>
+        <NavLink to="/career" onClick={() => setMenuOpen(false)}>
+          CAREER
+        </NavLink>
+        <NavLink to="/clients" onClick={() => setMenuOpen(false)}>
+          CLIENTS
+        </NavLink>
+
+        {/* ✅ Products Accordion */}
+        <div>
+          <button
+            onClick={() => setProductOpen(!productOpen)}
+            className="w-full text-left flex justify-between items-center"
           >
-            {link.name}
-          </NavLink>
-        ))}
+            PRODUCTS {productOpen ? "▲" : "▼"}
+          </button>
+          {productOpen && (
+            <div className="pl-4 mt-2 space-y-2">
+              <NavLink to="/pariksha" onClick={() => setMenuOpen(false)}>
+                📦 Digital Pariksha
+              </NavLink>
+              <NavLink to="/evaluation" onClick={() => setMenuOpen(false)}>
+                📂 Digital Evaluation
+              </NavLink>
+              <NavLink to="/scoring" onClick={() => setMenuOpen(false)}>
+                📝 Digital Scoring
+              </NavLink>
+              <NavLink to="/gurukul" onClick={() => setMenuOpen(false)}>
+                📝 Digital Gurukul
+              </NavLink>
+            </div>
+          )}
+        </div>
+
+        {/* ✅ Solutions Accordion */}
+        <div>
+          <button
+            onClick={() => setSolutionsOpen(!solutionsOpen)}
+            className="w-full text-left flex justify-between items-center"
+          >
+            SOLUTIONS {solutionsOpen ? "▲" : "▼"}
+          </button>
+          {solutionsOpen && (
+            <div className="pl-4 mt-2 space-y-2">
+              <NavLink to="/paper" onClick={() => setMenuOpen(false)}>
+                💡 Question Paper Management
+              </NavLink>
+              <NavLink to="/assessment" onClick={() => setMenuOpen(false)}>
+                🎓 Assessment Management
+              </NavLink>
+              <NavLink to="/allocation" onClick={() => setMenuOpen(false)}>
+                📊 Allocation Management
+              </NavLink>
+              <NavLink to="/marking" onClick={() => setMenuOpen(false)}>
+                📊 DigiMarking
+              </NavLink>
+              <NavLink to="/result" onClick={() => setMenuOpen(false)}>
+                📊 DigiResult
+              </NavLink>
+            </div>
+          )}
+        </div>
+
+        <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
+          CONTACT
+        </NavLink>
+        <NavLink to="/signin" onClick={() => setMenuOpen(false)}>
+          SIGN IN
+        </NavLink>
       </div>
+
+      {/* ✅ Animation */}
+      <style>{`
+        @keyframes fadeIn {
+          0% { opacity: 0; transform: scale(0.95); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.2s ease-in-out forwards;
+        }
+      `}</style>
     </>
   );
 }

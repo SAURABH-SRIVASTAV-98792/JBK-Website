@@ -31,9 +31,9 @@ export default function Carousel() {
   };
 
   return (
-    <div className="carousel">
+    <div className="w-screen-lg">
       {/* Image */}
-      <img src={images[index]} alt="slide" className="carousel-img" />
+      <img src={images[index]} alt="slide" className="w-full" />
 
       {/* Buttons */}
       <button className="prev" onClick={prevSlide}>

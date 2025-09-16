@@ -1,4 +1,3 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./assets/index.css";
 import Navbar from "./Components/Navbar";
 import Services from "./Components/Services";
@@ -7,7 +6,7 @@ import Footer from "./Components/Footer";
 import Sectors from "./Components/Sectors";
 import Home from "./Components/Home";
 import Career from "./Components/Career";
-import Clints from "./Components/Clients";
+import Clients from "./Components/Clients"; // ✅ fixed
 import Solutions from "./Components/Solutions";
 import Signin from "./Components/Signin";
 import { useState } from "react";
@@ -22,50 +21,114 @@ import DigitalPariksha from "./pages/DigitalPariksha";
 import DigitalEvaluation from "./pages/DigitalEvaluation";
 import DigitalScoring from "./pages/DigitalScoring";
 import DigitalGurukul from "./pages/DigitalGurukul";
+import QuestionPaperMang from "./pages/QuestionPaperMang";
+
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+
+// layout wrapper with navbar + footer
+function Layout({ dark, setDark }) {
+  return (
+    <div
+      className={`min-h-screen flex flex-col transition-colors duration-500 ${
+        dark ? "bg-black text-white" : "bg-white text-black"
+      }`}
+    >
+      <Navbar dark={dark} setDark={setDark} />
+      <main className="flex-1">
+        <Outlet /> {/* renders the current route */}
+      </main>
+      <Footer />
+    </div>
+  );
+}
 
 function App() {
   const [dark, setDark] = useState(false);
 
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout dark={dark} setDark={setDark} />,
+      children: [
+        {
+          path: "/",
+          element: <Home />,
+        },
+        {
+          path: "/sectors",
+          element: <Sectors />,
+        },
+        {
+          path: "/career",
+          element: <Career />,
+        },
+        {
+          path: "/clients",
+          element: <Clients />,
+        },
+        {
+          path: "/products",
+          element: <Products />,
+        },
+        {
+          path: "/solutions",
+          element: <Solutions />,
+        },
+        {
+          path: "/contact",
+          element: <Contact />,
+        },
+        {
+          path: "/signin",
+          element: <Signin />,
+        },
+        {
+          path: "/paper",
+          element: <QuestionPaperMang />,
+        },
+        {
+          path: "/app",
+          element: <ApplicationMang />,
+        },
+        {
+          path: "/allocation",
+          element: <AllocationMang />,
+        },
+        {
+          path: "/assessment",
+          element: <AssessmentMang />,
+        },
+        {
+          path: "/marking",
+          element: <DigiMarking />,
+        },
+        {
+          path: "/result",
+          element: <DigiResult />,
+        },
+        {
+          path: "/pariksha",
+          element: <DigitalPariksha />,
+        },
+        {
+          path: "/evaluation",
+          element: <DigitalEvaluation />,
+        },
+        {
+          path: "/scoring",
+          element: <DigitalScoring />,
+        },
+        {
+          path: "/gurukul",
+          element: <DigitalGurukul />,
+        },
+      ],
+    },
+  ]);
+
   return (
     <>
-      <div
-        className={`min-h-screen flex flex-col transition-colors duration-500 ${
-          dark ? "bg-black text-white" : "bg-white text-black"
-        }`}
-      >
-        <Navbar dark={dark} setDark={setDark} />
-
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/sectors" element={<Sectors />} />
-            <Route path="/career" element={<Career />} />
-            <Route path="/clients" element={<Clints />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/signin" element={<Signin />} />
-            <Route path="/products" element={<Products />} />
-
-            {/* solution pages */}
-            <Route path="/" element={<Solutions />} />
-            <Route path="/application" element={<ApplicationMang />} />
-            <Route path="/assessment" element={<AssessmentMang />} />
-            <Route path="/allocation" element={<AllocationMang />} />
-            <Route path="/digi-marking" element={<DigiMarking />} />
-            <Route path="/digi-result" element={<DigiResult />} />
-
-            {/* product page */}
-            <Route path="/" element={<Products />} />
-            <Route path="/digitalpriksha" element={<DigitalPariksha />} />
-            <Route path="/digitalevaluation" element={<DigitalEvaluation />} />
-            <Route path="/digitalscoring" element={<DigitalScoring />} />
-            <Route path="/digitalgurukul" element={<DigitalGurukul />} />
-          </Routes>
-        </main>
-
-        <Footer />
-      </div>
+      <RouterProvider router={router} />
     </>
   );
 }
