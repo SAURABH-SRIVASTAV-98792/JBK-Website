@@ -145,6 +145,19 @@ function Navbar({ dark, setDark }) {
             {solutionsOpen && (
               <div className="absolute top-10 left-0 bg-white text-black rounded-2xl shadow-2xl p-4 w-96 gap-3 animate-fadeIn">
                 <Link
+                  to="/solutions"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">💡</span>
+                  <div>
+                    <p className="font-semibold">All Solutions</p>
+                    <p className="text-sm text-gray-500 text-xl">
+                      Browse all innovative solutions
+                    </p>
+                  </div>
+                </Link>
+
+                <Link
                   to="/paper"
                   className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
                 >
@@ -169,7 +182,7 @@ function Navbar({ dark, setDark }) {
                   </div>
                 </Link>
                 <Link
-                  to="/applications"
+                  to="/app"
                   className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
                 >
                   <span className="text-violet-500 text-xl">🎓</span>

@@ -4,6 +4,7 @@ import AssessmentMang from "../pages/AssessmentMang";
 import AllocationMang from "../pages/AllocationMang";
 import DigiMarking from "../pages/DigiMarking";
 import DigiResult from "../pages/DigiResult";
+import QuestionPaperMang from "../pages/QuestionPaperMang";
 function Solutions() {
   return (
     <>
@@ -17,6 +18,10 @@ function Solutions() {
         </Link>
       </div>
       <div className="flex flex-col space-y-4 p-10 text-2xl text-blue-600">
+        <Link to="/paper" className="hover:underline">
+          Question Paper Management
+        </Link>
+
         <Link to="/application" className="hover:underline">
           Application Management
         </Link>
@@ -32,6 +37,9 @@ function Solutions() {
         <Link to="/digi-result" className="hover:underline">
           Digital Result
         </Link>
+      </div>
+      <div>
+        <QuestionPaperMang />
       </div>
       <div>
         <ApplicationMang />
