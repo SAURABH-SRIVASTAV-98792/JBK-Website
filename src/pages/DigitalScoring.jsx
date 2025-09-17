@@ -1,6 +1,15 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 const DigitalScoring = () => {
+  const segement = ["Universities", "Boards", "Schools", "Recruitment Boards"];
+  const benefit = [
+    "Time and Cost Optimization",
+    "Resource Optimization",
+    "Easy to use and Affordable",
+    "Centralized Data",
+    "Reliable and Scalable",
+    "Hassle-free Fee Payment",
+  ];
   return (
     <div className="bg-gray-50 text-gray-800">
       {/* Page Header */}
@@ -48,13 +57,11 @@ const DigitalScoring = () => {
             Perfectly suited for:
           </h3>
           <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
-            {["Universities", "Boards", "Schools", "Recruitment Boards"].map(
-              (item) => (
-                <li key={item} className="flex items-center gap-3 text-lg">
-                  <FaCheckCircle className="text-indigo-600" /> {item}
-                </li>
-              )
-            )}
+            {segement.map((item) => (
+              <li key={item} className="flex items-center gap-3 text-lg">
+                <FaCheckCircle className="text-indigo-600" /> {item}
+              </li>
+            ))}
           </ul>
         </div>
       </section>
@@ -66,14 +73,7 @@ const DigitalScoring = () => {
             Business Benefits
           </h3>
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              "Time and Cost Optimization",
-              "Resource Optimization",
-              "Easy to use and Affordable",
-              "Centralized Data",
-              "Reliable and Scalable",
-              "Hassle-free Fee Payment",
-            ].map((benefit) => (
+            {benefit.map((benefit) => (
               <div
                 key={benefit}
                 className="bg-white shadow-md rounded-xl p-6 text-center hover:shadow-xl transition"

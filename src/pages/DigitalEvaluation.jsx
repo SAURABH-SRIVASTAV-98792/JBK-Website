@@ -1,6 +1,19 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 const DigitalEvaluation = () => {
+  const segement = [
+    "University Boards or the providers of Higher education",
+    "School Boards",
+    "Recruitment and Examination Bodies, etc.",
+  ];
+  const benefit = [
+    "DigiMarking: Digitalization of answer sheets with bar-coding and scanning",
+    "Live Marking: Real-time evaluation and monitoring of answer sheets",
+    "DigiResult: Automated processing of results and reports",
+    "Result Publishing: Secure online publishing and hosting of results",
+    "Scanning: High-quality scanning of answer sheets for digital storage",
+  ];
+
   return (
     <>
       <div className="bg-gray-50 text-gray-800">
@@ -19,7 +32,7 @@ const DigitalEvaluation = () => {
         </section>
 
         {/* intro section */}
-        <section className="max-w-7xl mx-auto py-16 grid grid-cols-2 gap-12 items-center">
+        <section className="max-w-7xl mx-auto py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-6">
           <img
             src="/Images/Product/digitalscoring.png"
             alt="Digital Pariksha"
@@ -59,12 +72,8 @@ const DigitalEvaluation = () => {
             <h3 className="text-3xl mb-6 font-semibold text-gray-800">
               Digital Evalution is specifically designed for:
             </h3>
-            <ul className="grid md:grid-cols-2 gap-4 text-gray-600 text-lg">
-              {[
-                "University Boards or the providers of Higher education",
-                "School Boards",
-                "Recruitment and Examination Bodies, etc.",
-              ].map((item) => (
+            <ul className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 text-gray-600 text-lg">
+              {segement.map((item) => (
                 <li key={item} className="flex item-center gap-3 ">
                   <FaCheckCircle /> {item}
                 </li>
@@ -80,7 +89,7 @@ const DigitalEvaluation = () => {
             <h3 className="text-3xl mb-6 font-semibold text-gray-800">
               Digital Evaluation comes with these modules:
             </h3>
-            <ul className="grid md:grid-cols-2 gap-4 text-gray-600 text-lg">
+            <ul className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 text-gray-600 text-lg">
               {[
                 "Universities and Boards",
                 "Schools and School Board",
@@ -100,8 +109,8 @@ const DigitalEvaluation = () => {
             <h3 className="text-3xl font-bold mb-10 text-gray-800 text-center">
               Business Benefits:
             </h3>
-            <div className="grid md:grid-cols-3 gap-8">
-              {["DigiMarking", "DigiResult", "Scanning"].map((benefit) => (
+            <div className="grid sm:grid-cols-1 md:grid-cols-3 gap-8">
+              {benefit.map((benefit) => (
                 <div
                   key={benefit}
                   className="bg-white shadow-lg rounded-xl text-center hover:shadow-xl transaction text-lg hover:bg-violet-600 "

@@ -1,6 +1,18 @@
 import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 const DigitalGurukul = () => {
+  const segement = [
+    "Universities boards: Builds smarter campuses with simplified learning, teaching support, and education excellence.",
+    "Schools and Colleges: Creates digital campuses to streamline academic and administrative processes.",
+    "Empowers trainers and educators to deliver measurable learning goals effectively.",
+    "Vocational training: Delivers skill development and distance learning solutions with modern technologies.",
+  ];
+  const benefit = [
+    "Reduce operational costs",
+    "Enhance credibility and visibility",
+    "Ensure compliance",
+  ];
+
   return (
     <>
       <div className="bg-gray-50 text-gray-800">
@@ -19,7 +31,7 @@ const DigitalGurukul = () => {
         </section>
 
         {/* intro section */}
-        <section className="max-w-7xl mx-auto py-16 grid grid-cols-2 gap-12 items-center">
+        <section className="max-w-7xl mx-auto py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-6">
           <img
             src="/Images/Product/digitalscoring.png"
             alt="Digital Pariksha"
@@ -60,14 +72,10 @@ const DigitalGurukul = () => {
               Digital Gurukul is designed to serve the following segments:
             </h3>
             <ul className="grid md:grid-cols-2 gap-4 text-gray-600 text-lg">
-              {[
-                "Universities boards: This is helpful for building smarter campus solutions with the help of simplified learning, processes supporting teaching and for driving excellence in education.",
-                "Schools and Colleges: Help to build a digital campus to streamline all your process.",
-                "It empowers the trainers as well as the educators to deliver goals that can be measured.",
-                "Vocational training: We ensure to deliver products as well as the solutions by making use of appropriate learning technologies that are helpful in enrichment of skills development along with the initiatives of distance learning.",
-              ].map((item) => (
-                <li key={item} className="flex item-center gap-3 ">
-                  <FaCheckCircle className="absolute  " /> {item}
+              {segement.map((item) => (
+                <li key={item} className="flex item-center gap-3">
+                  <FaCheckCircle className="text-indigo-600 " />
+                  <span> {item}</span>
                 </li>
               ))}
             </ul>
@@ -103,11 +111,7 @@ const DigitalGurukul = () => {
               Business Benefits:
             </h3>
             <div className="grid md:grid-cols-3 gap-8">
-              {[
-                "Reducing the cost of operation",
-                "Providing comprehensive credibility and visibility",
-                "Ensuring amenability",
-              ].map((benefit) => (
+              {benefit.map((benefit) => (
                 <div
                   key={benefit}
                   className="bg-white shadow-lg rounded-xl text-center hover:shadow-xl transaction text-lg hover:bg-violet-600 "
