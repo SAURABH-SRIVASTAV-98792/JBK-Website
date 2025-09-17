@@ -17,43 +17,67 @@ function Solutions() {
           HOME
         </Link>
       </div>
-      <div className="flex flex-col space-y-4 p-10 text-2xl text-blue-600">
-        <Link to="/paper" className="hover:underline">
-          Question Paper Management
-        </Link>
-
-        <Link to="/application" className="hover:underline">
-          Application Management
-        </Link>
-        <Link to="/assessment" className="hover:underline">
-          Assessment Management
-        </Link>
-        <Link to="/allocation" className="hover:underline">
-          Allocation Management
-        </Link>
-        <Link to="/digi-marking" className="hover:underline">
-          Digital Marking
-        </Link>
-        <Link to="/digi-result" className="hover:underline">
-          Digital Result
-        </Link>
+      {/* Sidebar Links */}
+      <div
+        className="flex flex-col space-y-4 p-10 text-xl font-semibold 
+                bg-gradient-to-br from-blue-50 via-white to-blue-100 
+                rounded-2xl shadow-lg w-full max-w-md mx-auto bg-gradient-to-br from-violet-300 via white to-violet-700 transition duration-300 ease-in-out"
+      >
+        <a href="#paper" className="menu-link">
+          <p className="hover:bg-gradient-to-br from-blue-300 via white to-blue-700 transition duration-300 ease-in-out ">
+            {" "}
+            📄 Question Paper Management
+          </p>
+        </a>
+        <a href="#application" className="menu-link">
+          <p className="hover:bg-gradient-to-br from-blue-300 via white to-blue-700 transition duration-300 ease-in-out ">
+            {" "}
+            📝 Application Management
+          </p>
+        </a>
+        <a href="#assessment" className="menu-link">
+          <p className="hover:bg-gradient-to-br from-blue-300 via white to-blue-700 transition duration-300 ease-in-out ">
+            {" "}
+            📊 Assessment Management
+          </p>
+        </a>
+        <a href="#allocation" className="menu-link">
+          <p className="hover:bg-gradient-to-br from-blue-300 via white to-blue-700 transition duration-300 ease-in-out ">
+            {" "}
+            🎯 Allocation Management
+          </p>
+        </a>
+        <a href="#digi-marking" className="menu-link">
+          <p className="hover:bg-gradient-to-br from-blue-300 via white to-blue-700 transition duration-300 ease-in-out ">
+            {" "}
+            ✍️ Digital Marking
+          </p>
+        </a>
+        <a href="#digi-result" className="menu-link">
+          <p className="hover:bg-gradient-to-br from-blue-300 via white to-blue-700 transition duration-300 ease-in-out ">
+            {" "}
+            📈 Digital Result
+          </p>
+        </a>
       </div>
-      <div>
+
+      {/* Content Sections */}
+      <div id="paper" className="scroll-mt-28">
         <QuestionPaperMang />
       </div>
-      <div>
+      <div id="application" className="scroll-mt-28">
         <ApplicationMang />
       </div>
-      <div>
+      <div id="assessment" className="scroll-mt-28">
         <AssessmentMang />
       </div>
-      <div>
+      <div id="allocation" className="scroll-mt-28">
         <AllocationMang />
       </div>
-      <div>
+      <div id="digi-marking" className="scroll-mt-28">
         <DigiMarking />
       </div>
-      <div>
+      <div id="digi-result" className="scroll-mt-28">
         <DigiResult />
       </div>
     </>

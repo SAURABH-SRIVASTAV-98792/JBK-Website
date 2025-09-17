@@ -58,7 +58,10 @@ const DigitalScoring = () => {
           </h3>
           <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
             {segement.map((item) => (
-              <li key={item} className="flex items-center gap-3 text-lg">
+              <li
+                key={item}
+                className="flex items-center gap-3 text-lg hover:text-violet-800 hover:text-xl"
+              >
                 <FaCheckCircle className="text-indigo-600" /> {item}
               </li>
             ))}
@@ -76,44 +79,52 @@ const DigitalScoring = () => {
             {benefit.map((benefit) => (
               <div
                 key={benefit}
-                className="bg-white shadow-md rounded-xl p-6 text-center hover:shadow-xl transition"
+                className="bg-white shadow-lg rounded-xl text-center hover:shadow-xl  transition duration-300 ease-in-out text-lg hover:bg-gradient-to-br from-violet-400 to-violet-900 p-4"
               >
-                <p className="text-gray-700 text-lg">{benefit}</p>
+                <p className="text-gray-700  hover:text-xl hover:text-white">
+                  {benefit}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
-
       {/* Why KriRit India */}
       <section className="max-w-6xl mx-auto px-6 py-16">
-        <h3 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+        <h3 className="text-3xl font-bold text-violet-800 mb-6 text-center ">
           Why KriRit India?
         </h3>
-        <p className="text-gray-600 text-center mb-10 max-w-3xl mx-auto text-lg">
+        <p className="text-gray-600 text-center mb-10 max-w-3xl mx-auto text-xl ">
           We believe in ethical principles and delivering reliable products. Our
           solutions help reduce costs, improve visibility, and ensure
           compliance.
         </p>
         <ul className="space-y-6 text-gray-700 max-w-4xl mx-auto">
-          <li className="text-lg">
+          <li className="text-lg ">
             <b className="text-indigo-600 text-xl">
               Reducing the cost of operation:
             </b>{" "}
-            Effective monitoring of operations reduces financial losses and
-            ensures resource optimization.
+            <span className="hover:text-violet-800 hover:text-xl">
+              {" "}
+              Effective monitoring of operations reduces financial losses and
+              ensures resource optimization.
+            </span>
           </li>
           <li className="text-lg">
             <b className="text-indigo-600 text-xl">
               Comprehensive credibility & visibility:
             </b>{" "}
-            End-to-end solutions provide a complete business view and accelerate
-            decision-making.
+            <span className="hover:text-violet-800 hover:text-xl">
+              End-to-end solutions provide a complete business view and
+              accelerate decision-making.
+            </span>
           </li>
           <li className="text-lg">
             <b className="text-indigo-600 text-xl">Ensuring compliance:</b>{" "}
-            Reliable solutions compliant with schools, universities, and
-            statutory requirements (like RTI).
+            <span className="hover:text-violet-800 hover:text-xl">
+              Reliable solutions compliant with schools, universities, and
+              statutory requirements (like RTI).
+            </span>
           </li>
         </ul>
       </section>

@@ -41,26 +41,12 @@ const DigitalGurukul = () => {
             <h3 className="text-3xl mb-6 text-indigo-600 font-semibold">
               DIGITAL GURUKUL
             </h3>
-            <p className="text-gray-600 text-lg leading-relaxed">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae,
-              eius. <br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt,
-              quasi praesentium? Nostrum, minus? Accusamus blanditiis magnam,
-              nulla numquam voluptates quod quis consequatur possimus rem ex
-              asperiores. Sapiente quos ea dignissimos! Sint illum dicta eveniet
-              tempore impedit nostrum, odit ullam sapiente totam autem quae
-              quas. Quaerat nam deleniti enim similique neque? <br />
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
-              id. Eius exercitationem maiores aliquam temporibus laboriosam
-              adipisci doloremque voluptates iusto minus, debitis molestias.
-              Porro dolores repellendus magni similique ipsam non? <br />
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse ex
-              exercitationem neque odio. Debitis non impedit earum velit
-              doloremque eius nostrum expedita, nisi magni omnis quo provident
-              alias cumque voluptates quasi qui tempora ducimus sunt totam
-              perferendis aperiam praesentium doloribus suscipit itaque?
-              Expedita nulla quibusdam eligendi aut dolorum a natus voluptas
-              modi. Aut dolorum alias a laudantium officia, repudiandae quae.
+            <p className="text-gray-600 text-xl leading-relaxed">
+              DIGITAL GURUKUL by KriRit is a paperless administration platform
+              for educational institutions, streamlining both academic and
+              administrative processes. It reduces time, cost, and effort while
+              improving communication across students, parents, teachers, staff,
+              and management.
             </p>
           </div>
         </section>
@@ -73,7 +59,10 @@ const DigitalGurukul = () => {
             </h3>
             <ul className="grid md:grid-cols-2 gap-4 text-gray-600 text-lg">
               {segement.map((item) => (
-                <li key={item} className="flex item-center gap-3">
+                <li
+                  key={item}
+                  className="flex item-center gap-3 hover:text-violet-600 hover:text-xl"
+                >
                   <FaCheckCircle className="text-indigo-600 " />
                   <span> {item}</span>
                 </li>
@@ -96,8 +85,11 @@ const DigitalGurukul = () => {
                 "Institute Administration",
                 "Exam Management",
               ].map((item) => (
-                <li key={item} className="flex item-center gap-3 ">
-                  <FaCheckCircle /> {item}
+                <li
+                  key={item}
+                  className="flex item-center gap-3 hover:text-violet-600 hover:text-xl"
+                >
+                  <FaCheckCircle className="text-indigo-600" /> {item}
                 </li>
               ))}
             </ul>
@@ -114,9 +106,9 @@ const DigitalGurukul = () => {
               {benefit.map((benefit) => (
                 <div
                   key={benefit}
-                  className="bg-white shadow-lg rounded-xl text-center hover:shadow-xl transaction text-lg hover:bg-violet-600 "
+                  className="bg-white shadow-lg rounded-xl text-center hover:shadow-xl  transition duration-300 ease-in-out text-lg hover:bg-gradient-to-br from-violet-400 to-violet-900"
                 >
-                  <p className="text-gray-600 hover:text-white hover:text-xl">
+                  <p className="text-gray-600 hover:text-white hover:text-xl p-4">
                     {benefit}
                   </p>
                 </div>
@@ -127,33 +119,40 @@ const DigitalGurukul = () => {
 
         {/* Why KriRit India */}
         <section className="max-w-6xl mx-auto px-6 py-16">
-          <h3 className="text-3xl font-bold text-gray-800 mb-6 text-center">
+          <h3 className="text-3xl font-bold text-violet-800 mb-6 text-center ">
             Why KriRit India?
           </h3>
-          <p className="text-gray-600 text-center mb-10 max-w-3xl mx-auto text-lg">
+          <p className="text-gray-600 text-center mb-10 max-w-3xl mx-auto text-xl ">
             We believe in ethical principles and delivering reliable products.
             Our solutions help reduce costs, improve visibility, and ensure
             compliance.
           </p>
           <ul className="space-y-6 text-gray-700 max-w-4xl mx-auto">
-            <li className="text-lg">
+            <li className="text-lg ">
               <b className="text-indigo-600 text-xl">
                 Reducing the cost of operation:
               </b>{" "}
-              Effective monitoring of operations reduces financial losses and
-              ensures resource optimization.
+              <span className="hover:text-violet-800 hover:text-xl">
+                {" "}
+                Effective monitoring of operations reduces financial losses and
+                ensures resource optimization.
+              </span>
             </li>
             <li className="text-lg">
               <b className="text-indigo-600 text-xl">
                 Comprehensive credibility & visibility:
               </b>{" "}
-              End-to-end solutions provide a complete business view and
-              accelerate decision-making.
+              <span className="hover:text-violet-800 hover:text-xl">
+                End-to-end solutions provide a complete business view and
+                accelerate decision-making.
+              </span>
             </li>
             <li className="text-lg">
               <b className="text-indigo-600 text-xl">Ensuring compliance:</b>{" "}
-              Reliable solutions compliant with schools, universities, and
-              statutory requirements (like RTI).
+              <span className="hover:text-violet-800 hover:text-xl">
+                Reliable solutions compliant with schools, universities, and
+                statutory requirements (like RTI).
+              </span>
             </li>
           </ul>
         </section>

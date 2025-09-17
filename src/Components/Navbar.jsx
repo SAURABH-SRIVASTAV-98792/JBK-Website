@@ -134,43 +134,47 @@ function Navbar({ dark, setDark }) {
               </div>
             )}
           </div>
+
+          {/* solution dropdown */}
+
           <div
             className="relative"
             onMouseEnter={() => setSolutionsOpen(true)}
             onMouseLeave={() => setSolutionsOpen(false)}
           >
             <button className="hover:underline flex items-center">
-              SOLUTONS ⬇
+              SOLUTIONS ⬇
             </button>
             {solutionsOpen && (
               <div className="absolute top-10 left-0 bg-white text-black rounded-2xl shadow-2xl p-4 w-96 gap-3 animate-fadeIn">
-                <Link
-                  to="/solutions"
+                <a
+                  href="#paper"
                   className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
                 >
-                  <span className="text-violet-500 text-xl">💡</span>
-                  <div>
-                    <p className="font-semibold">All Solutions</p>
-                    <p className="text-sm text-gray-500 text-xl">
-                      Browse all innovative solutions
-                    </p>
-                  </div>
-                </Link>
-
-                <Link
-                  to="/paper"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
-                >
-                  <span className="text-violet-500 text-xl">💡</span>
+                  <span className="text-violet-500 text-xl">📄</span>
                   <div>
                     <p className="font-semibold">Question Paper Management</p>
-                    <p className="text-sm text-gray-500 text-xl">
-                      Browse all innovative solutions
+                    <p className="text-sm text-gray-500">
+                      Smart digital examination platform
                     </p>
                   </div>
-                </Link>
-                <Link
-                  to="/assessment"
+                </a>
+
+                <a
+                  href="#application"
+                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                >
+                  <span className="text-violet-500 text-xl">📝</span>
+                  <div>
+                    <p className="font-semibold">Application Management</p>
+                    <p className="text-sm text-gray-500">
+                      Smart digital examination platform
+                    </p>
+                  </div>
+                </a>
+
+                <a
+                  href="#assessment"
                   className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
                 >
                   <span className="text-violet-500 text-xl">🎓</span>
@@ -180,55 +184,46 @@ function Navbar({ dark, setDark }) {
                       Smart digital examination platform
                     </p>
                   </div>
-                </Link>
-                <Link
-                  to="/app"
+                </a>
+
+                <a
+                  href="#allocation"
                   className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
                 >
-                  <span className="text-violet-500 text-xl">🎓</span>
-                  <div>
-                    <p className="font-semibold">Application Management</p>
-                    <p className="text-sm text-gray-500">
-                      Smart digital examination platform
-                    </p>
-                  </div>
-                </Link>
-                <Link
-                  to="/allocation"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
-                >
-                  <span className="text-violet-500 text-xl">🎓</span>
+                  <span className="text-violet-500 text-xl">🎯</span>
                   <div>
                     <p className="font-semibold">Allocation Management</p>
                     <p className="text-sm text-gray-500">
                       Smart digital examination platform
                     </p>
                   </div>
-                </Link>
-                <Link
-                  to="/marking"
+                </a>
+
+                <a
+                  href="#digi-marking"
                   className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
                 >
-                  <span className="text-violet-500 text-xl">🎓</span>
+                  <span className="text-violet-500 text-xl">✍️</span>
                   <div>
                     <p className="font-semibold">DigiMarking</p>
                     <p className="text-sm text-gray-500">
                       Smart digital examination platform
                     </p>
                   </div>
-                </Link>
-                <Link
-                  to="/result"
+                </a>
+
+                <a
+                  href="#digi-result"
                   className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
                 >
-                  <span className="text-violet-500 text-xl">🎓</span>
+                  <span className="text-violet-500 text-xl">📈</span>
                   <div>
                     <p className="font-semibold">DigiResult</p>
                     <p className="text-sm text-gray-500">
                       Smart digital examination platform
                     </p>
                   </div>
-                </Link>
+                </a>
               </div>
             )}
           </div>
@@ -274,7 +269,8 @@ function Navbar({ dark, setDark }) {
         <div>
           <button
             onClick={() => setProductOpen(!productOpen)}
-            className="w-full text-left flex justify-between items-center"
+            classNam
+            e="w-full text-left flex justify-between items-center"
           >
             PRODUCTS {productOpen ? "▲" : "▼"}
           </button>
@@ -296,7 +292,7 @@ function Navbar({ dark, setDark }) {
           )}
         </div>
 
-        {/* ✅ Solutions Accordion */}
+        {/*  Solutions Accordion */}
         <div>
           <button
             onClick={() => setSolutionsOpen(!solutionsOpen)}
@@ -304,23 +300,27 @@ function Navbar({ dark, setDark }) {
           >
             SOLUTIONS {solutionsOpen ? "▲" : "▼"}
           </button>
+
           {solutionsOpen && (
             <div className="pl-4 mt-2 space-y-2">
-              <NavLink to="/paper" onClick={() => setMenuOpen(false)}>
-                💡 Question Paper Management
-              </NavLink>
-              <NavLink to="/assessment" onClick={() => setMenuOpen(false)}>
+              <a href="#paper" onClick={() => setMenuOpen(false)}>
+                📄 Question Paper Management
+              </a>
+              <a href="#application" onClick={() => setMenuOpen(false)}>
+                📝 Application Management
+              </a>
+              <a href="#assessment" onClick={() => setMenuOpen(false)}>
                 🎓 Assessment Management
-              </NavLink>
-              <NavLink to="/allocation" onClick={() => setMenuOpen(false)}>
-                📊 Allocation Management
-              </NavLink>
-              <NavLink to="/marking" onClick={() => setMenuOpen(false)}>
-                📊 DigiMarking
-              </NavLink>
-              <NavLink to="/result" onClick={() => setMenuOpen(false)}>
-                📊 DigiResult
-              </NavLink>
+              </a>
+              <a href="#allocation" onClick={() => setMenuOpen(false)}>
+                🎯 Allocation Management
+              </a>
+              <a href="#digi-marking" onClick={() => setMenuOpen(false)}>
+                ✍️ DigiMarking
+              </a>
+              <a href="#digi-result" onClick={() => setMenuOpen(false)}>
+                📈 DigiResult
+              </a>
             </div>
           )}
         </div>
