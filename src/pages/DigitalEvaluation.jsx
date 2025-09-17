@@ -34,8 +34,8 @@ const DigitalEvaluation = () => {
         {/* intro section */}
         <section className="max-w-7xl mx-auto py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-6">
           <img
-            src="/Images/Product/digitalscoring.png"
-            alt="Digital Pariksha"
+            src="/Images/Product/digitalevaluation.png"
+            alt="Digital Evaluation"
             className="rounded-xl shadow-lg"
           />
           <div>
@@ -60,8 +60,11 @@ const DigitalEvaluation = () => {
             </h3>
             <ul className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 text-gray-600 text-lg">
               {segement.map((item) => (
-                <li key={item} className="flex item-center gap-3 ">
-                  <FaCheckCircle /> {item}
+                <li
+                  key={item}
+                  className="flex item-center gap-3 hover:text-xl hover:text-violet-800"
+                >
+                  <FaCheckCircle className="text-violet-800" /> {item}
                 </li>
               ))}
             </ul>
@@ -81,8 +84,11 @@ const DigitalEvaluation = () => {
                 "Schools and School Board",
                 "Recruitment and Examination Bodies, etc",
               ].map((item) => (
-                <li key={item} className="flex item-center gap-3 ">
-                  <FaCheckCircle /> {item}
+                <li
+                  key={item}
+                  className="flex item-center gap-3 hover:text-xl hover:text-violet-800"
+                >
+                  <FaCheckCircle className="text-violet-800" /> {item}
                 </li>
               ))}
             </ul>

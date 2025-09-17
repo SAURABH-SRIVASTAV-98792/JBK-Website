@@ -42,7 +42,7 @@ const DigitalPariksha = () => {
               Home
             </a>
             <span>/</span>
-            <span className="text-white">Digital Scoring</span>
+            <span className="text-white">Digital Pariksha</span>
           </nav>
         </div>
       </section>
@@ -50,7 +50,7 @@ const DigitalPariksha = () => {
       {/* Intro Section */}
       <section className="max-w-7xl mx-auto py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-6">
         <img
-          src="/Images/Product/digitalscoring.png"
+          src="/Images/Product/digitalpariksha.png"
           alt="Digital Pariksha"
           className="rounded-xl shadow-lg"
         />

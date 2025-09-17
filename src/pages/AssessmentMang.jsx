@@ -5,7 +5,15 @@ import {
   FaCreditCard,
   FaDatabase,
 } from "react-icons/fa";
-import { MdSpeed, MdOutlineSecurity, MdLayersClear } from "react-icons/md";
+import {
+  FaRegSmile,
+  FaLock,
+  FaProjectDiagram,
+  FaClock,
+  FaCogs,
+  FaServer,
+} from "react-icons/fa";
+
 const AssessmentMang = () => {
   return (
     <>
@@ -52,32 +60,32 @@ const AssessmentMang = () => {
 
         {/* Benefits Section */}
         <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
-          <BenefitCard icon={<MdSpeed size={40} />} title="Easy & Affordable">
-            Designed for simplicity and cost-effectiveness.
+          <BenefitCard icon={<FaRegSmile size={40} />} title="Easy to Use">
+            <p>Simple, intuitive, and user-friendly.</p>
+          </BenefitCard>
+          <BenefitCard icon={<FaLock size={40} />} title="Secure & Fast">
+            Safe and quick performance you can trust.
           </BenefitCard>
           <BenefitCard
-            icon={<MdOutlineSecurity size={40} />}
-            title="Secure Payments"
+            icon={<FaProjectDiagram size={40} />}
+            title="Streamlined Process"
           >
-            Fast, safe, and reliable transactions.
+            Simplifies workflows for better efficiency.
+          </BenefitCard>
+          <BenefitCard icon={<FaClock size={40} />} title="Reduced Time & Cost">
+            Save effort, money, and valuable resources.
           </BenefitCard>
           <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Remove Duplicacy"
+            icon={<FaCogs size={40} />}
+            title="Resource Optimization"
           >
-            Eliminate redundant data automatically.
+            Maximize output with minimal resources.
           </BenefitCard>
           <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Centralized Data"
+            icon={<FaServer size={40} />}
+            title="Reliable & Scalable"
           >
-            Eliminate redundant data automatically.
-          </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Hassel free fee payment"
-          >
-            Eliminate redundant data automatically.
+            Stable system that grows with your needs.
           </BenefitCard>
         </section>
       </div>

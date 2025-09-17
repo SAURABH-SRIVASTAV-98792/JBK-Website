@@ -6,6 +6,13 @@ import {
   FaDatabase,
 } from "react-icons/fa";
 import { MdSpeed, MdOutlineSecurity, MdLayersClear } from "react-icons/md";
+import {
+  FaBolt,
+  FaBullseye,
+  FaRecycle,
+  FaShieldAlt,
+  FaStar,
+} from "react-icons/fa";
 const QuestionPaperMang = () => {
   return (
     <>
@@ -52,32 +59,26 @@ const QuestionPaperMang = () => {
 
         {/* Benefits Section */}
         <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
-          <BenefitCard icon={<MdSpeed size={40} />} title="Easy & Affordable">
-            Designed for simplicity and cost-effectiveness.
+          <BenefitCard icon={<FaBolt size={40} />} title="Quick Setup">
+            <p>Create question papers effortlessly in minutes.</p>
           </BenefitCard>
           <BenefitCard
-            icon={<MdOutlineSecurity size={40} />}
-            title="Secure Payments"
+            icon={<FaBullseye size={40} />}
+            title="Smart Distribution"
           >
-            Fast, safe, and reliable transactions.
+            <p>Assign marks and weightage with precision.</p>
           </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Remove Duplicacy"
-          >
-            Eliminate redundant data automatically.
+          <BenefitCard icon={<FaRecycle size={40} />} title="No Redundancy">
+            <p>Eliminate duplicate or repetitive questions.</p>
           </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Centralized Data"
-          >
-            Eliminate redundant data automatically.
+          <BenefitCard icon={<FaCheckCircle size={40} />} title="Error-Free">
+            <p> Minimize manual mistakes with automation.</p>
           </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Hassel free fee payment"
-          >
-            Eliminate redundant data automatically.
+          <BenefitCard icon={<FaShieldAlt size={40} />} title="Secure & Fast">
+            <p>Ensure safe, reliable, and speedy assessments</p>
+          </BenefitCard>
+          <BenefitCard icon={<FaStar size={40} />} title="Quality Boost">
+            <p>Enhance overall exam standards and fairness.</p>
           </BenefitCard>
         </section>
       </div>

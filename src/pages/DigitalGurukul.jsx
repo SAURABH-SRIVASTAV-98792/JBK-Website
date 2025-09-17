@@ -33,7 +33,7 @@ const DigitalGurukul = () => {
         {/* intro section */}
         <section className="max-w-7xl mx-auto py-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center p-6">
           <img
-            src="/Images/Product/digitalscoring.png"
+            src="/Images/Product/digitalgurukul.png"
             alt="Digital Pariksha"
             className="rounded-xl shadow-lg"
           />

@@ -72,6 +72,7 @@ function Navbar({ dark, setDark }) {
           <NavLink to="/clients" className="hover:underline">
             CLIENTS
           </NavLink>
+
           {/* PRODUCT DROPDOWN */}
           <div
             className="relative"
@@ -135,8 +136,7 @@ function Navbar({ dark, setDark }) {
             )}
           </div>
 
-          {/* solution dropdown */}
-
+          {/* SOLUTIONS DROPDOWN (Desktop) */}
           <div
             className="relative"
             onMouseEnter={() => setSolutionsOpen(true)}
@@ -146,87 +146,47 @@ function Navbar({ dark, setDark }) {
               SOLUTIONS ⬇
             </button>
             {solutionsOpen && (
-              <div className="absolute top-10 left-0 bg-white text-black rounded-2xl shadow-2xl p-4 w-96 gap-3 animate-fadeIn">
-                <a
-                  href="#paper"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+              <div className="absolute top-10 left-0 bg-white text-black rounded-2xl shadow-2xl p-4 w-80 gap-3 animate-fadeIn">
+                <Link
+                  to="/solutions#paper"
+                  className="block hover:bg-violet-50 p-3 rounded-xl"
                 >
-                  <span className="text-violet-500 text-xl">📄</span>
-                  <div>
-                    <p className="font-semibold">Question Paper Management</p>
-                    <p className="text-sm text-gray-500">
-                      Smart digital examination platform
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="#application"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                  📄 Question Paper Management
+                </Link>
+                <Link
+                  to="/solutions#application"
+                  className="block hover:bg-violet-50 p-3 rounded-xl"
                 >
-                  <span className="text-violet-500 text-xl">📝</span>
-                  <div>
-                    <p className="font-semibold">Application Management</p>
-                    <p className="text-sm text-gray-500">
-                      Smart digital examination platform
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="#assessment"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                  📝 Application Management
+                </Link>
+                <Link
+                  to="/solutions#assessment"
+                  className="block hover:bg-violet-50 p-3 rounded-xl"
                 >
-                  <span className="text-violet-500 text-xl">🎓</span>
-                  <div>
-                    <p className="font-semibold">Assessment Management</p>
-                    <p className="text-sm text-gray-500">
-                      Smart digital examination platform
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="#allocation"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                  📊 Assessment Management
+                </Link>
+                <Link
+                  to="/solutions#allocation"
+                  className="block hover:bg-violet-50 p-3 rounded-xl"
                 >
-                  <span className="text-violet-500 text-xl">🎯</span>
-                  <div>
-                    <p className="font-semibold">Allocation Management</p>
-                    <p className="text-sm text-gray-500">
-                      Smart digital examination platform
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="#digi-marking"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                  🎯 Allocation Management
+                </Link>
+                <Link
+                  to="/solutions#digi-marking"
+                  className="block hover:bg-violet-50 p-3 rounded-xl"
                 >
-                  <span className="text-violet-500 text-xl">✍️</span>
-                  <div>
-                    <p className="font-semibold">DigiMarking</p>
-                    <p className="text-sm text-gray-500">
-                      Smart digital examination platform
-                    </p>
-                  </div>
-                </a>
-
-                <a
-                  href="#digi-result"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                  ✍️ Digital Marking
+                </Link>
+                <Link
+                  to="/solutions#digi-result"
+                  className="block hover:bg-violet-50 p-3 rounded-xl"
                 >
-                  <span className="text-violet-500 text-xl">📈</span>
-                  <div>
-                    <p className="font-semibold">DigiResult</p>
-                    <p className="text-sm text-gray-500">
-                      Smart digital examination platform
-                    </p>
-                  </div>
-                </a>
+                  📈 Digital Result
+                </Link>
               </div>
             )}
           </div>
+
           <NavLink to="/contact" className="hover:underline">
             CONTACT
           </NavLink>
@@ -244,6 +204,7 @@ function Navbar({ dark, setDark }) {
           {menuOpen ? <IoMdClose size={32} /> : <CiMenuFries size={32} />}
         </button>
       </nav>
+
       {/* MOBILE SIDEBAR MENU */}
       <div
         className={`fixed top-0 right-0 w-2/3 h-full shadow-lg p-6 flex flex-col space-y-6
@@ -265,12 +226,11 @@ function Navbar({ dark, setDark }) {
           CLIENTS
         </NavLink>
 
-        {/* ✅ Products Accordion */}
+        {/* Products Accordion */}
         <div>
           <button
             onClick={() => setProductOpen(!productOpen)}
-            classNam
-            e="w-full text-left flex justify-between items-center"
+            className="w-full text-left flex justify-between items-center"
           >
             PRODUCTS {productOpen ? "▲" : "▼"}
           </button>
@@ -292,7 +252,7 @@ function Navbar({ dark, setDark }) {
           )}
         </div>
 
-        {/*  Solutions Accordion */}
+        {/* SOLUTIONS Accordion (Mobile) */}
         <div>
           <button
             onClick={() => setSolutionsOpen(!solutionsOpen)}
@@ -300,27 +260,41 @@ function Navbar({ dark, setDark }) {
           >
             SOLUTIONS {solutionsOpen ? "▲" : "▼"}
           </button>
-
           {solutionsOpen && (
             <div className="pl-4 mt-2 space-y-2">
-              <a href="#paper" onClick={() => setMenuOpen(false)}>
+              <NavLink to="/solutions#paper" onClick={() => setMenuOpen(false)}>
                 📄 Question Paper Management
-              </a>
-              <a href="#application" onClick={() => setMenuOpen(false)}>
+              </NavLink>
+              <NavLink
+                to="/solutions#application"
+                onClick={() => setMenuOpen(false)}
+              >
                 📝 Application Management
-              </a>
-              <a href="#assessment" onClick={() => setMenuOpen(false)}>
-                🎓 Assessment Management
-              </a>
-              <a href="#allocation" onClick={() => setMenuOpen(false)}>
+              </NavLink>
+              <NavLink
+                to="/solutions#assessment"
+                onClick={() => setMenuOpen(false)}
+              >
+                📊 Assessment Management
+              </NavLink>
+              <NavLink
+                to="/solutions#allocation"
+                onClick={() => setMenuOpen(false)}
+              >
                 🎯 Allocation Management
-              </a>
-              <a href="#digi-marking" onClick={() => setMenuOpen(false)}>
-                ✍️ DigiMarking
-              </a>
-              <a href="#digi-result" onClick={() => setMenuOpen(false)}>
-                📈 DigiResult
-              </a>
+              </NavLink>
+              <NavLink
+                to="/solutions#digi-marking"
+                onClick={() => setMenuOpen(false)}
+              >
+                ✍️ Digital Marking
+              </NavLink>
+              <NavLink
+                to="/solutions#digi-result"
+                onClick={() => setMenuOpen(false)}
+              >
+                📈 Digital Result
+              </NavLink>
             </div>
           )}
         </div>

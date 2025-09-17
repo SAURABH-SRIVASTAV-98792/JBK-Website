@@ -5,7 +5,24 @@ import AllocationMang from "../pages/AllocationMang";
 import DigiMarking from "../pages/DigiMarking";
 import DigiResult from "../pages/DigiResult";
 import QuestionPaperMang from "../pages/QuestionPaperMang";
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+
 function Solutions() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    } else {
+      // scroll to top if no hash
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [location]);
+
   return (
     <>
       <div className="text-center text-5xl p-20 bg-gray-500 text-white">
@@ -17,6 +34,7 @@ function Solutions() {
           HOME
         </Link>
       </div>
+
       {/* Sidebar Links */}
       <div
         className="flex flex-col space-y-4 p-10 text-xl font-semibold 
@@ -60,7 +78,6 @@ function Solutions() {
           </p>
         </a>
       </div>
-
       {/* Content Sections */}
       <div id="paper" className="scroll-mt-28">
         <QuestionPaperMang />
@@ -83,4 +100,5 @@ function Solutions() {
     </>
   );
 }
+
 export default Solutions;

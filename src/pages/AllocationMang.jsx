@@ -5,7 +5,14 @@ import {
   FaCreditCard,
   FaDatabase,
 } from "react-icons/fa";
-import { MdSpeed, MdOutlineSecurity, MdLayersClear } from "react-icons/md";
+import {
+  FaProjectDiagram,
+  FaClock,
+  FaCogs,
+  FaEye,
+  FaServer,
+} from "react-icons/fa";
+
 const AllocationMang = () => {
   return (
     <>
@@ -52,32 +59,29 @@ const AllocationMang = () => {
 
         {/* Benefits Section */}
         <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
-          <BenefitCard icon={<MdSpeed size={40} />} title="Easy & Affordable">
-            Designed for simplicity and cost-effectiveness.
+          <BenefitCard
+            icon={<FaProjectDiagram size={40} />}
+            title="Streamlined Allocation"
+          >
+            Simplify allocation with an efficient process.
+          </BenefitCard>
+          <BenefitCard icon={<FaClock size={40} />} title="Time Saving">
+            Reduce effort with faster workflows.
           </BenefitCard>
           <BenefitCard
-            icon={<MdOutlineSecurity size={40} />}
-            title="Secure Payments"
+            icon={<FaCogs size={40} />}
+            title="Resource Optimization"
           >
-            Fast, safe, and reliable transactions.
+            Maximize efficiency with minimal input.
+          </BenefitCard>
+          <BenefitCard icon={<FaEye size={40} />} title="Transparency">
+            Ensure clear and open processes
           </BenefitCard>
           <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Remove Duplicacy"
+            icon={<FaServer size={40} />}
+            title="Reliable & Scalable"
           >
-            Eliminate redundant data automatically.
-          </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Centralized Data"
-          >
-            Eliminate redundant data automatically.
-          </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Hassel free fee payment"
-          >
-            Eliminate redundant data automatically.
+            Stable system that grows with demand.
           </BenefitCard>
         </section>
       </div>
