@@ -91,7 +91,7 @@ function Navbar({ dark, setDark }) {
         {/* Logo */}
         <Link to="/">
           <img
-            src="/Images/logo-color-1.png"
+            src="/Images/logo.jpg"
             alt="Logo"
             className="h-15 w-20 rounded-full "
           />
@@ -109,7 +109,7 @@ function Navbar({ dark, setDark }) {
 
             <NavLink to="/service" className="relative group">
               <span className="px-3 py-2 transition-all duration-300 group-hover:text-violet-700">
-                SERVICE
+                SERVICES
               </span>
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-violet-700 transition-all duration-300 group-hover:w-full"></span>
             </NavLink>
@@ -241,12 +241,15 @@ function Navbar({ dark, setDark }) {
         {!isDesktop && (
           <button
             onClick={toggleMenu}
-            className=" fixed top-16 right-4 p-2 z-[10001] bg-transparent text-white"
+            className=" fixed top-3 right-4 p-2 z-[10001] bg-transparent text-white"
           >
             {menuOpen ? (
               <IoMdClose size={32} className="text-white" />
             ) : (
-              <CiMenuFries size={32} className="top-50" />
+              <CiMenuFries
+                size={32}
+                className="text-violet-900 rounded-4xl bg-white"
+              />
             )}
           </button>
         )}
@@ -271,7 +274,11 @@ function Navbar({ dark, setDark }) {
 
           {/* Logo (optional) */}
           <div className="flex items-center space-x-3">
-            <img src="/Images/logo-color-1.png" alt="Logo" className="h-10" />
+            <img
+              src="/Images/logo.jpg"
+              alt="Logo"
+              className="h-10 rounded-full"
+            />
             {/* <h2 className="text-xl font-bold tracking-wide">My Brand</h2> */}
           </div>
 
@@ -284,11 +291,11 @@ function Navbar({ dark, setDark }) {
             HOME
           </NavLink>
           <NavLink
-            to="/sectors"
+            to="/service"
             onClick={() => setMenuOpen(false)}
             className="block py-2 px-3 rounded-lg hover:bg-white/20 transition"
           >
-            SECTORS WE SERVE
+            SERVICES
           </NavLink>
           <NavLink
             to="/career"
