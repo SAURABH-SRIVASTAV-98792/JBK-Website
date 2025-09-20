@@ -55,7 +55,7 @@ function App() {
           element: <Home />,
         },
         {
-          path: "/sectors",
+          path: "/service",
           element: <Sectors />,
         },
         {

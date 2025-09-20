@@ -5,7 +5,8 @@ import {
   FaCreditCard,
   FaDatabase,
 } from "react-icons/fa";
-import { MdSpeed, MdOutlineSecurity, MdLayersClear } from "react-icons/md";
+import { FaClock, FaBalanceScale, FaLaptop, FaGlobe } from "react-icons/fa";
+
 const DigiMarking = () => {
   return (
     <>
@@ -50,32 +51,20 @@ const DigiMarking = () => {
 
         {/* Benefits Section */}
         <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
-          <BenefitCard icon={<MdSpeed size={40} />} title="Easy & Affordable">
-            Designed for simplicity and cost-effectiveness.
+          <BenefitCard icon={<FaClock size={40} />} title="Timely Publishing">
+            Publish and host results quickly with high quality.
           </BenefitCard>
           <BenefitCard
-            icon={<MdOutlineSecurity size={40} />}
-            title="Secure Payments"
+            icon={<FaBalanceScale size={40} />}
+            title="Standardized Marking"
           >
-            Fast, safe, and reliable transactions.
+            Ensure consistency in marking with no tampering.
           </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Remove Duplicacy"
-          >
-            Eliminate redundant data automatically.
+          <BenefitCard icon={<FaLaptop size={40} />} title="Digital Evaluation">
+            Evaluate answer sheets securely and efficiently online.
           </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Centralized Data"
-          >
-            Eliminate redundant data automatically.
-          </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Hassel free fee payment"
-          >
-            Eliminate redundant data automatically.
+          <BenefitCard icon={<FaGlobe size={40} />} title="Remote Access">
+            Allow examiners to work without location barriers.
           </BenefitCard>
         </section>
       </div>
@@ -98,10 +87,10 @@ function FeatureItem({ icon, title, children }) {
 
 function BenefitCard({ icon, title, children }) {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-xl transition">
+    <div className="hover:bg-gradient-to-r from-violet-700 to-pink-400 bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-xl transition">
       <div className="flex justify-center mb-4 text-indigo-600">{icon}</div>
       <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{children}</p>
+      <p className="text-gray-900">{children}</p>
     </div>
   );
 }

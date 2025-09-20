@@ -104,10 +104,10 @@ function FeatureItem({ icon, title, children }) {
 
 function BenefitCard({ icon, title, children }) {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-xl transition">
+    <div className="hover:bg-gradient-to-r from-violet-700 to-pink-400 bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-xl transition">
       <div className="flex justify-center mb-4 text-indigo-600">{icon}</div>
       <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{children}</p>
+      <p className="text-gray-900">{children}</p>
     </div>
   );
 }

@@ -5,7 +5,8 @@ import {
   FaCreditCard,
   FaDatabase,
 } from "react-icons/fa";
-import { MdSpeed, MdOutlineSecurity, MdLayersClear } from "react-icons/md";
+import { FaCalculator, FaTrophy, FaSearch, FaDownload } from "react-icons/fa";
+
 const DigiResult = () => {
   return (
     <>
@@ -50,32 +51,23 @@ const DigiResult = () => {
 
         {/* Benefits Section */}
         <section className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8">
-          <BenefitCard icon={<MdSpeed size={40} />} title="Easy & Affordable">
-            Designed for simplicity and cost-effectiveness.
+          <BenefitCard
+            icon={<FaCalculator size={40} />}
+            title="Result Calculation"
+          >
+            Quickly compute total marks and percentages.
+          </BenefitCard>
+          <BenefitCard icon={<FaTrophy size={40} />} title="Ranked Publishing">
+            Publish results with marks and rank ordering.
+          </BenefitCard>
+          <BenefitCard icon={<FaSearch size={40} />} title="Easy Retrieval">
+            Access data effortlessly for re-evaluation.
           </BenefitCard>
           <BenefitCard
-            icon={<MdOutlineSecurity size={40} />}
-            title="Secure Payments"
+            icon={<FaDownload size={40} />}
+            title="Multi-Format Download"
           >
-            Fast, safe, and reliable transactions.
-          </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Remove Duplicacy"
-          >
-            Eliminate redundant data automatically.
-          </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Centralized Data"
-          >
-            Eliminate redundant data automatically.
-          </BenefitCard>
-          <BenefitCard
-            icon={<MdLayersClear size={40} />}
-            title="Hassel free fee payment"
-          >
-            Eliminate redundant data automatically.
+            Export results in various file formats.
           </BenefitCard>
         </section>
       </div>
@@ -98,10 +90,10 @@ function FeatureItem({ icon, title, children }) {
 
 function BenefitCard({ icon, title, children }) {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-xl transition">
+    <div className="hover:bg-gradient-to-r from-violet-700 to-pink-400 bg-white rounded-2xl shadow-md p-8 text-center hover:shadow-xl transition">
       <div className="flex justify-center mb-4 text-indigo-600">{icon}</div>
       <h3 className="text-lg font-semibold mb-2">{title}</h3>
-      <p className="text-gray-600">{children}</p>
+      <p className="text-gray-900">{children}</p>
     </div>
   );
 }

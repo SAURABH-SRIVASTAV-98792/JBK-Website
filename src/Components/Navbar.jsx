@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CiMenuFries } from "react-icons/ci";
 import { IoMdClose } from "react-icons/io";
 
@@ -8,304 +8,417 @@ function Navbar({ dark, setDark }) {
   const [productOpen, setProductOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
 
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
+  const productRef = useRef(null);
+  const solutionsRef = useRef(null);
+
+  // ✅ Detect screen size
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // ✅ Close dropdown when clicking outside (only desktop)
+  useEffect(() => {
+    if (!isDesktop) return;
+    function handleClickOutside(event) {
+      if (productRef.current && !productRef.current.contains(event.target)) {
+        setProductOpen(false);
+      }
+      if (
+        solutionsRef.current &&
+        !solutionsRef.current.contains(event.target)
+      ) {
+        setSolutionsOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isDesktop]);
   const handleToggleDark = () => setDark(!dark);
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
     <>
-      {/* 🔹 Top Info Bar */}
+      {/* 🔹 Top Info Bar (Fixed & Visible Text) */}
       <div
-        className={`w-full ${
-          dark ? "bg-violet-700" : "bg-violet-600 shadow-lg"
-        } text-white px-6 py-2 flex items-center justify-between text-sm`}
+        className={` top-0 left-0 w-full z-50 transition-all duration-300
+    ${
+      dark
+        ? "bg-violet-900/95 backdrop-blur-md shadow-md"
+        : "bg-gradient-to-r from-violet-600/90 via-purple-600/90 to-pink-600/90 shadow-md"
+    } text-white px-4 sm:px-6 py-2 flex items-center justify-between text-sm`}
       >
-        <div className="flex space-x-6">
+        {/* Left Section: Contact Info */}
+        <div className="flex items-center space-x-4 sm:space-x-6">
           <a
             href="mailto:saurabhsrivastav0999@gmail.com"
-            className="hover:underline"
+            className="flex items-center gap-1 sm:gap-2 hover:text-yellow-300 transition cursor-pointer drop-shadow-md"
           >
-            saurabhsrivastav0999@gmail.com
+            📧 saurabhsrivastav0999@gmail.com
           </a>
-          <a href="tel:6306536110" className="hover:underline">
-            6306536110
+          <a
+            href="tel:6306536110"
+            className="flex items-center gap-1 sm:gap-2 hover:text-yellow-300 transition cursor-pointer drop-shadow-md"
+          >
+            📞 6306536110
           </a>
         </div>
 
-        <div className="flex items-center space-x-3">
+        {/* Right Section: Theme Toggle + Promo */}
+        <div className="flex items-center space-x-2 sm:space-x-3">
           <button
             onClick={handleToggleDark}
-            className="p-2 rounded-full bg-gray-200 text-black dark:bg-gray-700 dark:text-white"
-            aria-label="Toggle Dark Mode"
+            className="p-2 rounded-full bg-white/20 hover:bg-white/40 transition cursor-pointer drop-shadow-md"
           >
             {dark ? "🌜" : "🌞"}
           </button>
-          <p className="hidden md:block font-medium">
-            REFER CUSTOMER & GET REWARDED
+          <p className="hidden md:block font-medium tracking-wide text-xs sm:text-sm drop-shadow-md">
+            🎁 REFER & GET REWARDED
           </p>
         </div>
       </div>
 
       {/* 🔹 Main Navigation Bar */}
       <nav
-        className={`${
+        className={`flex justify-between pr-5  top-11 w-full z-50 backdrop-blur-md border-b border-white/20 transition-all duration-500 ${
           dark
-            ? "bg-violet-500 text-white shadow-lg"
-            : "bg-violet-400 text-white shadow-lg"
-        } px-6 py-3 flex items-center justify-between relative z-50`}
+            ? "bg-gray-900/60 text-white"
+            : "bg-gradient-to-r from-violet-500/70 via-purple-500/70 to-pink-500/70 text-white"
+        }`}
       >
         {/* Logo */}
         <Link to="/">
-          <img src="/Images/logo-color-1.png" alt="Logo" className="h-10" />
+          <img
+            src="/Images/logo-color-1.png"
+            alt="Logo"
+            className="h-15 w-20 rounded-full "
+          />
         </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex space-x-6 text-lg font-medium items-center">
-          <NavLink to="/" className="hover:underline">
+        {/* ✅ Desktop Menu */}
+        {isDesktop && (
+          <div className="hidden md:flex space-x-6 text-lg font-medium items-center">
+            <NavLink to="/" className="relative group">
+              <span className="px-3 py-2 transition-all duration-300 group-hover:text-violet-700">
+                HOME
+              </span>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-violet-700 transition-all duration-1200 group-hover:w-full"></span>
+            </NavLink>
+
+            <NavLink to="/service" className="relative group">
+              <span className="px-3 py-2 transition-all duration-300 group-hover:text-violet-700">
+                SERVICE
+              </span>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-violet-700 transition-all duration-300 group-hover:w-full"></span>
+            </NavLink>
+            <NavLink to="/career" className="relative group">
+              <span className="px-3 py-2 transition-all duration-300 group-hover:text-violet-700">
+                CAREER
+              </span>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-violet-700 transition-all duration-300 group-hover:w-full"></span>
+            </NavLink>
+            <NavLink to="/clients" className="relative group">
+              <span className="px-3 py-2 transition-all duration-300 group-hover:text-violet-700">
+                CLIENT
+              </span>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-violet-700 transition-all duration-300 group-hover:w-full"></span>
+            </NavLink>
+
+            {/* Product Dropdown */}
+            <div
+              ref={productRef}
+              className="relative"
+              // onMouseEnter={() => setProductOpen(true)}
+              // onMouseLeave={() => setProductOpen(false)}
+            >
+              <button
+                className="relative flex items-center group"
+                onClick={() => setProductOpen((prev) => !prev)}
+              >
+                <span className="hover:text-violet-700"> PRODUCT ⬇</span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-violet-700 transition-all duration-300 group-hover:w-full"></span>
+              </button>
+              {productOpen && (
+                <div className="absolute top-10 left-0 bg-white text-black rounded-2xl shadow-2xl p-4 w-80 animate-fadeIn">
+                  <Link
+                    to="/pariksha"
+                    className="block hover:bg-violet-50 p-3 rounded-xl"
+                  >
+                    📂 Digital Pariksha
+                  </Link>
+                  <Link
+                    to="/evaluation"
+                    className="block hover:bg-violet-50 p-3 rounded-xl"
+                  >
+                    📝 Digital Evaluation
+                  </Link>
+                  <Link
+                    to="/scoring"
+                    className="block hover:bg-violet-50 p-3 rounded-xl"
+                  >
+                    📊 Digital Scoring
+                  </Link>
+                  <Link
+                    to="/gurukul"
+                    className="block hover:bg-violet-50 p-3 rounded-xl"
+                  >
+                    🎓 Digital Gurukul
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            {/* Solutions Dropdown */}
+            <div ref={solutionsRef} className="relative">
+              <button
+                className="relative flex items-center group"
+                onClick={() => setSolutionsOpen((prev) => !prev)}
+              >
+                <span className="hover:text-violet-700"> SOLUTIONS ⬇</span>
+                <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-violet-700 transition-all duration-300 group-hover:w-full"></span>
+              </button>
+
+              {solutionsOpen && (
+                <div className="absolute top-10 left-0 bg-white text-black rounded-2xl shadow-2xl p-4 w-80 animate-fadeIn">
+                  <Link
+                    to="/solutions#paper"
+                    className="block hover:bg-violet-50 p-3 rounded-xl"
+                  >
+                    📄 Question Paper Management
+                  </Link>
+                  <Link
+                    to="/solutions#app"
+                    className="block hover:bg-violet-50 p-3 rounded-xl"
+                  >
+                    📝 Application Management
+                  </Link>
+                  <Link
+                    to="/solutions#assessment"
+                    className="block hover:bg-violet-50 p-3 rounded-xl"
+                  >
+                    🎓 Assessment Management
+                  </Link>
+                  <Link
+                    to="/solutions#allocation"
+                    className="block hover:bg-violet-50 p-3 rounded-xl"
+                  >
+                    🎯 Allocation Management
+                  </Link>
+                  <Link
+                    to="/solutions#marking"
+                    className="block hover:bg-violet-50 p-3 rounded-xl"
+                  >
+                    ✍️ DigiMarking
+                  </Link>
+                  <Link
+                    to="/solutions#result"
+                    className="block hover:bg-violet-50 p-3 rounded-xl"
+                  >
+                    📈 DigiResult
+                  </Link>
+                </div>
+              )}
+            </div>
+
+            <NavLink to="/contact" className="relative group">
+              <span className="px-3 py-2 transition-all duration-300 group-hover:text-violet-700">
+                CONTACT
+              </span>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-violet-700 transition-all duration-300 group-hover:w-full"></span>
+            </NavLink>
+            <NavLink to="/signin" className="relative group">
+              <span className="px-3 py-2 transition-all duration-300 group-hover:text-violet-700">
+                SIGN IN
+              </span>
+              <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-violet-700 transition-all duration-300 group-hover:w-full"></span>
+            </NavLink>
+          </div>
+        )}
+
+        {/* ✅ Mobile Menu Button */}
+        {!isDesktop && (
+          <button
+            onClick={toggleMenu}
+            className=" fixed top-16 right-4 p-2 z-[10001] bg-transparent text-white"
+          >
+            {menuOpen ? (
+              <IoMdClose size={32} className="text-white" />
+            ) : (
+              <CiMenuFries size={32} className="top-50" />
+            )}
+          </button>
+        )}
+      </nav>
+
+      {/* Mobile Sidebar */}
+      {menuOpen && (
+        <div
+          className={`fixed top-0 right-0 h-full w-72 sm:w-80 md:w-96 z-50 
+      bg-gradient-to-b from-violet-600/80 via-purple-700/80 to-pink-600/80 
+      backdrop-blur-xl shadow-2xl p-6 flex flex-col space-y-6 
+      text-white transform transition-transform duration-500 ease-in-out
+      ${menuOpen ? "translate-x-0" : "translate-x-full"}`}
+        >
+          {/* Close Button */}
+          <button
+            onClick={toggleMenu}
+            className="absolute top-4 right-4 p-2 rounded-full bg-white/20 hover:bg-white/30 transition"
+          >
+            <IoMdClose size={28} className="cursor-pointer" />
+          </button>
+
+          {/* Logo (optional) */}
+          <div className="flex items-center space-x-3">
+            <img src="/Images/logo-color-1.png" alt="Logo" className="h-10" />
+            {/* <h2 className="text-xl font-bold tracking-wide">My Brand</h2> */}
+          </div>
+
+          {/* Links */}
+          <NavLink
+            to="/"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 px-3 rounded-lg hover:bg-white/20 transition"
+          >
             HOME
           </NavLink>
-          <NavLink to="/sectors" className="hover:underline">
+          <NavLink
+            to="/sectors"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 px-3 rounded-lg hover:bg-white/20 transition"
+          >
             SECTORS WE SERVE
           </NavLink>
-          <NavLink to="/Career" className="hover:underline">
+          <NavLink
+            to="/career"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 px-3 rounded-lg hover:bg-white/20 transition"
+          >
             CAREER
           </NavLink>
-          <NavLink to="/clients" className="hover:underline">
+          <NavLink
+            to="/clients"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 px-3 rounded-lg hover:bg-white/20 transition"
+          >
             CLIENTS
           </NavLink>
 
-          {/* PRODUCT DROPDOWN */}
-          <div
-            className="relative"
-            onMouseEnter={() => setProductOpen(true)}
-            onMouseLeave={() => setProductOpen(false)}
-          >
-            <button className="hover:underline flex items-center">
-              PRODUCT ⬇
+          {/* Products Accordion */}
+          <div className="bg-white/10 rounded-xl p-3">
+            <button
+              onClick={() => setProductOpen(!productOpen)}
+              className="w-full flex justify-between items-center font-medium"
+            >
+              PRODUCTS {productOpen ? "▲" : "▼"}
             </button>
             {productOpen && (
-              <div className="absolute top-10 left-0 bg-white text-black rounded-2xl shadow-2xl p-4 w-80 gap-3 animate-fadeIn">
-                <Link
+              <div className="pl-3 mt-2 space-y-2 text-sm">
+                <NavLink
                   to="/pariksha"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-2 rounded-lg hover:bg-white/20 transition"
                 >
-                  <span className="text-violet-500 text-xl">📂</span>
-                  <div>
-                    <p className="font-semibold">Digital Pariksha</p>
-                    <p className="text-sm text-gray-500">
-                      Manage end-to-end applications smartly
-                    </p>
-                  </div>
-                </Link>
-                <Link
+                  📂 Digital Pariksha
+                </NavLink>
+                <NavLink
                   to="/evaluation"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-2 rounded-lg hover:bg-white/20 transition"
                 >
-                  <span className="text-violet-500 text-xl">📂</span>
-                  <div>
-                    <p className="font-semibold">Digital Evaluation</p>
-                    <p className="text-sm text-gray-500">
-                      Manage end-to-end applications smartly
-                    </p>
-                  </div>
-                </Link>
-                <Link
+                  📝 Digital Evaluation
+                </NavLink>
+                <NavLink
                   to="/scoring"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-2 rounded-lg hover:bg-white/20 transition"
                 >
-                  <span className="text-violet-500 text-xl">📂</span>
-                  <div>
-                    <p className="font-semibold">Digital Scoring</p>
-                    <p className="text-sm text-gray-500">
-                      Manage end-to-end applications smartly
-                    </p>
-                  </div>
-                </Link>
-                <Link
+                  📊 Digital Scoring
+                </NavLink>
+                <NavLink
                   to="/gurukul"
-                  className="flex items-start space-x-3 hover:bg-violet-50 p-3 rounded-xl"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-2 rounded-lg hover:bg-white/20 transition"
                 >
-                  <span className="text-violet-500 text-xl">📂</span>
-                  <div>
-                    <p className="font-semibold">Digital Gurukul</p>
-                    <p className="text-sm text-gray-500">
-                      Manage end-to-end applications smartly
-                    </p>
-                  </div>
-                </Link>
+                  🎓 Digital Gurukul
+                </NavLink>
               </div>
             )}
           </div>
 
-          {/* SOLUTIONS DROPDOWN (Desktop) */}
-          <div
-            className="relative"
-            onMouseEnter={() => setSolutionsOpen(true)}
-            onMouseLeave={() => setSolutionsOpen(false)}
-          >
-            <button className="hover:underline flex items-center">
-              SOLUTIONS ⬇
+          {/* Solutions Accordion */}
+          <div className="bg-white/10 rounded-xl p-3">
+            <button
+              onClick={() => setSolutionsOpen(!solutionsOpen)}
+              className="w-full flex justify-between items-center font-medium"
+            >
+              SOLUTIONS {solutionsOpen ? "▲" : "▼"}
             </button>
             {solutionsOpen && (
-              <div className="absolute top-10 left-0 bg-white text-black rounded-2xl shadow-2xl p-4 w-80 gap-3 animate-fadeIn">
-                <Link
+              <div className="pl-3 mt-2 space-y-2 text-sm">
+                <NavLink
                   to="/solutions#paper"
-                  className="block hover:bg-violet-50 p-3 rounded-xl"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-2 rounded-lg hover:bg-white/20 transition"
                 >
                   📄 Question Paper Management
-                </Link>
-                <Link
-                  to="/solutions#application"
-                  className="block hover:bg-violet-50 p-3 rounded-xl"
+                </NavLink>
+                <NavLink
+                  to="/solutions#app"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-2 rounded-lg hover:bg-white/20 transition"
                 >
                   📝 Application Management
-                </Link>
-                <Link
+                </NavLink>
+                <NavLink
                   to="/solutions#assessment"
-                  className="block hover:bg-violet-50 p-3 rounded-xl"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-2 rounded-lg hover:bg-white/20 transition"
                 >
-                  📊 Assessment Management
-                </Link>
-                <Link
+                  🎓 Assessment Management
+                </NavLink>
+                <NavLink
                   to="/solutions#allocation"
-                  className="block hover:bg-violet-50 p-3 rounded-xl"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-2 rounded-lg hover:bg-white/20 transition"
                 >
                   🎯 Allocation Management
-                </Link>
-                <Link
-                  to="/solutions#digi-marking"
-                  className="block hover:bg-violet-50 p-3 rounded-xl"
+                </NavLink>
+                <NavLink
+                  to="/solutions#marking"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-2 rounded-lg hover:bg-white/20 transition"
                 >
-                  ✍️ Digital Marking
-                </Link>
-                <Link
-                  to="/solutions#digi-result"
-                  className="block hover:bg-violet-50 p-3 rounded-xl"
+                  ✍️ DigiMarking
+                </NavLink>
+                <NavLink
+                  to="/solutions#result"
+                  onClick={() => setMenuOpen(false)}
+                  className="block py-2 px-2 rounded-lg hover:bg-white/20 transition"
                 >
-                  📈 Digital Result
-                </Link>
+                  📈 DigiResult
+                </NavLink>
               </div>
             )}
           </div>
 
-          <NavLink to="/contact" className="hover:underline">
+          <NavLink
+            to="/contact"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 px-3 rounded-lg hover:bg-white/20 transition"
+          >
             CONTACT
           </NavLink>
-          <NavLink to="/signin" className="hover:underline">
+          <NavLink
+            to="/signin"
+            onClick={() => setMenuOpen(false)}
+            className="block py-2 px-3 rounded-lg hover:bg-white/20 transition"
+          >
             SIGN IN
           </NavLink>
         </div>
-
-        {/* Mobile Menu Button */}
-        <button
-          onClick={toggleMenu}
-          aria-label="Toggle Menu"
-          className="md:hidden p-2 z-[9999] bg-transparent text-white"
-        >
-          {menuOpen ? <IoMdClose size={32} /> : <CiMenuFries size={32} />}
-        </button>
-      </nav>
-
-      {/* MOBILE SIDEBAR MENU */}
-      <div
-        className={`fixed top-0 right-0 w-2/3 h-full shadow-lg p-6 flex flex-col space-y-6
-        transform transition-transform duration-300 ease-in-out
-        ${menuOpen ? "translate-x-0" : "translate-x-full"}
-        ${dark ? "bg-gray-800 text-white" : "bg-violet-500 text-white"}
-        z-50`}
-      >
-        <NavLink to="/" onClick={() => setMenuOpen(false)}>
-          HOME
-        </NavLink>
-        <NavLink to="/sectors" onClick={() => setMenuOpen(false)}>
-          SECTOR WE SERVE
-        </NavLink>
-        <NavLink to="/career" onClick={() => setMenuOpen(false)}>
-          CAREER
-        </NavLink>
-        <NavLink to="/clients" onClick={() => setMenuOpen(false)}>
-          CLIENTS
-        </NavLink>
-
-        {/* Products Accordion */}
-        <div>
-          <button
-            onClick={() => setProductOpen(!productOpen)}
-            className="w-full text-left flex justify-between items-center"
-          >
-            PRODUCTS {productOpen ? "▲" : "▼"}
-          </button>
-          {productOpen && (
-            <div className="pl-4 mt-2 space-y-2">
-              <NavLink to="/pariksha" onClick={() => setMenuOpen(false)}>
-                📦 Digital Pariksha
-              </NavLink>
-              <NavLink to="/evaluation" onClick={() => setMenuOpen(false)}>
-                📂 Digital Evaluation
-              </NavLink>
-              <NavLink to="/scoring" onClick={() => setMenuOpen(false)}>
-                📝 Digital Scoring
-              </NavLink>
-              <NavLink to="/gurukul" onClick={() => setMenuOpen(false)}>
-                📝 Digital Gurukul
-              </NavLink>
-            </div>
-          )}
-        </div>
-
-        {/* SOLUTIONS Accordion (Mobile) */}
-        <div>
-          <button
-            onClick={() => setSolutionsOpen(!solutionsOpen)}
-            className="w-full text-left flex justify-between items-center"
-          >
-            SOLUTIONS {solutionsOpen ? "▲" : "▼"}
-          </button>
-          {solutionsOpen && (
-            <div className="pl-4 mt-2 space-y-2">
-              <NavLink to="/solutions#paper" onClick={() => setMenuOpen(false)}>
-                📄 Question Paper Management
-              </NavLink>
-              <NavLink
-                to="/solutions#application"
-                onClick={() => setMenuOpen(false)}
-              >
-                📝 Application Management
-              </NavLink>
-              <NavLink
-                to="/solutions#assessment"
-                onClick={() => setMenuOpen(false)}
-              >
-                📊 Assessment Management
-              </NavLink>
-              <NavLink
-                to="/solutions#allocation"
-                onClick={() => setMenuOpen(false)}
-              >
-                🎯 Allocation Management
-              </NavLink>
-              <NavLink
-                to="/solutions#digi-marking"
-                onClick={() => setMenuOpen(false)}
-              >
-                ✍️ Digital Marking
-              </NavLink>
-              <NavLink
-                to="/solutions#digi-result"
-                onClick={() => setMenuOpen(false)}
-              >
-                📈 Digital Result
-              </NavLink>
-            </div>
-          )}
-        </div>
-
-        <NavLink to="/contact" onClick={() => setMenuOpen(false)}>
-          CONTACT
-        </NavLink>
-        <NavLink to="/signin" onClick={() => setMenuOpen(false)}>
-          SIGN IN
-        </NavLink>
-      </div>
+      )}
 
       {/* ✅ Animation */}
       <style>{`

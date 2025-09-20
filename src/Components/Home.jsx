@@ -12,10 +12,10 @@ function Home() {
       <section className="bg-violet-500 text-white py-16 px-8 md:px-20 shadow-lg">
         <div className="grid md:grid-cols-2 gap-10 items-center">
           <div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className=" text-4xl md:text-5xl font-bold mb-6">
               WHY KRIRIT INDIA?
             </h1>
-            <p className="text-lg md:text-xl leading-relaxed">
+            <p className=" text-lg md:text-xl leading-relaxed">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem
               fugit et commodi nemo. Aliquid nisi architecto, alias numquam
               tempore exercitationem?
