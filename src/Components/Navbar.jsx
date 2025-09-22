@@ -119,12 +119,12 @@ function Navbar({ dark, setDark }) {
               </span>
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-violet-700 transition-all duration-300 group-hover:w-full"></span>
             </NavLink>
-            <NavLink to="/clients" className="relative group">
+            {/* <NavLink to="/clients" className="relative group">
               <span className="px-3 py-2 transition-all duration-300 group-hover:text-violet-700">
                 CLIENT
               </span>
               <span className="absolute left-0 bottom-0 w-0 h-[2px] bg-violet-700 transition-all duration-300 group-hover:w-full"></span>
-            </NavLink>
+            </NavLink> */}
 
             {/* Product Dropdown */}
             <div
@@ -304,13 +304,13 @@ function Navbar({ dark, setDark }) {
           >
             CAREER
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/clients"
             onClick={() => setMenuOpen(false)}
             className="block py-2 px-3 rounded-lg hover:bg-white/20 transition"
           >
             CLIENTS
-          </NavLink>
+          </NavLink> */}
 
           {/* Products Accordion */}
           <div className="bg-white/10 rounded-xl p-3">

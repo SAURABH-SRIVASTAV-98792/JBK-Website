@@ -7,15 +7,18 @@ function Products() {
   return (
     <>
       {/* 🔹 Header / Hero Section */}
-      <div className="text-center text-5xl p-20 bg-gray-600 text-white shadow-lg">
-        <h1 className="font-bold">PRODUCTS</h1>
-        <Link
-          to="/"
-          className="font-semibold inline-block mt-4 text-2xl text-violet-600 hover:underline"
-        >
-          HOME
-        </Link>
-      </div>
+      {/* <section className="bg-gradient-to-r from-indigo-100 to-purple-600 py-16 text-center text-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-4xl font-bold">Products</h2>
+          <nav className="flex justify-center space-x-2 mt-4 text-sm text-indigo-200">
+            <a href="/" className="hover:text-white">
+              Home
+            </a>
+            <span>/</span>
+            <span className="text-white">Products</span>
+          </nav>
+        </div>
+      </section> */}
       <div>
         <DigitalPariksha />
       </div>

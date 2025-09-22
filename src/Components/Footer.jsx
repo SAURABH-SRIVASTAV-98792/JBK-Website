@@ -1,8 +1,11 @@
-import { Link } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
+import { IoLogoInstagram } from "react-icons/io5";
+import { FaXTwitter } from "react-icons/fa6";
+import { CiYoutube } from "react-icons/ci";
+import { FiFacebook } from "react-icons/fi";
 function Footer() {
   return (
-    <footer className="bg-blue-950 text-white">
+    <footer className="bg-blue-950 text-white relative z-50">
       {/* 🔹 Main Footer Grid */}
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 gap-10 px-6 py-16">
         {/* Brand */}
@@ -55,15 +58,15 @@ function Footer() {
           <h2 className="text-2xl font-semibold text-blue-400 mb-4">
             Products
           </h2>
-          <ul className="space-y-3 text-lg">
-            <li>Digital Pariksha</li>
-            <li>Digital Evaluation</li>
-            <li>Digital Scoring</li>
-            <li>Digital Gurukul</li>
+          <ul className="space-y-3 text-lg flex flex-col">
+            <Link to="/pariksha">📂 Digital Pariksha</Link>
+            <Link to="/evaluation">📝 Digital Evaluation</Link>
+            <Link to="/scoring">📊 Digital Scoring</Link>
+            <Link to="/gurukul">🎓 Digital Gurukul</Link>
           </ul>
         </div>
 
-        {/* Contact Info */}
+        {/* Get in touch */}
         <div>
           <h2 className="text-2xl font-semibold text-blue-400 mb-4">
             Get in Touch
@@ -74,7 +77,7 @@ function Footer() {
                 href="mailto:saurabhsrivastav0999@gmail.com"
                 className="hover:text-blue-500"
               >
-                saurabhsrivastav0999@gmail.com
+                📧 saurabhsrivastav0999@gmail.com
               </a>
             </li>
             <li>
@@ -82,12 +85,12 @@ function Footer() {
                 href="mailto:agamsrivastav@gmail.com"
                 className="hover:text-blue-500"
               >
-                agamsrivastav@gmail.com
+                📧 agamsrivastav@gmail.com
               </a>
             </li>
             <li>
               <a href="tel:6306536110" className="hover:text-blue-500">
-                6306536110
+                📞 6306536110
               </a>
             </li>
             <li>
@@ -97,6 +100,23 @@ function Footer() {
               </address>
             </li>
           </ul>
+          <div className="flex gap-4">
+            <a href="http://instagram.com/">
+              <IoLogoInstagram className="hover:bg-purple-800 border-1 w-7 h-7 rounded-xl" />
+            </a>
+
+            <a href="https://x.com/">
+              <FaXTwitter className="hover:bg-black border w-7 h-7 rounded-xl w-5 h-5" />
+            </a>
+
+            <a href="https://www.youtube.com/">
+              <CiYoutube className="hover:bg-red-600 border w-7 h-7 rounded-xl" />
+            </a>
+
+            <a href="https://www.facebook.com/">
+              <FiFacebook className="border hover:bg-blue-700 w-7 h-7 rounded-xl" />
+            </a>
+          </div>
         </div>
       </div>
 
@@ -108,7 +128,7 @@ function Footer() {
             <Link to="/" className="hover:text-blue-500">
               Home
             </Link>
-            <Link to="/sectors" className="hover:text-blue-500">
+            <Link to="/service" className="hover:text-blue-500">
               Sectors
             </Link>
             <Link to="/career" className="hover:text-blue-500">
@@ -130,13 +150,15 @@ function Footer() {
 
           {/* Right - Policies */}
           <div className="flex flex-wrap justify-center md:justify-end gap-6 text-sm text-gray-400">
-            <p className="hover:text-blue-500 cursor-pointer">
+            <Link className="hover:text-blue-500 cursor-pointer">
               Terms & Conditions
-            </p>
-            <p className="hover:text-blue-500 cursor-pointer">Privacy Policy</p>
-            <p className="hover:text-blue-500 cursor-pointer">
+            </Link>
+            <Link className="hover:text-blue-500 cursor-pointer">
+              Privacy Policy
+            </Link>
+            <Link className="hover:text-blue-500 cursor-pointer">
               Refund & Cancellation
-            </p>
+            </Link>
           </div>
         </div>
       </div>

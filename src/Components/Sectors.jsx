@@ -37,22 +37,21 @@ function Sectors() {
   return (
     <>
       {/* Header */}
-      <div className="text-center text-5xl p-20 bg-gray-800 text-white shadow-lg text-semibold ">
-        <h1 className="hover:text-violet-400 text-center">SECTORS WE SERVE</h1>
-        <Link
-          to="/"
-          className="hover:underline text-violet-400 text-2xl mt-4 inline-block text-semibold"
-        >
-          HOME
-        </Link>
-      </div>
+      <section className="bg-gradient-to-r from-indigo-600 to-purple-600 py-16 text-center text-white">
+        <div className="max-w-5xl mx-auto px-6">
+          <h2 className="text-4xl font-bold">Sector We Serve</h2>
+          <nav className="flex justify-center space-x-2 mt-4 text-sm text-indigo-200">
+            <a href="/" className="hover:text-white">
+              Home
+            </a>
+            <span>/</span>
+            <span className="text-white">Services</span>
+          </nav>
+        </div>
+      </section>
 
       <div className="hover:bg-violet-400 ">
-        <img
-          src="Images/sectors we serve/sectors.png"
-          alt=""
-          className="mx-auto "
-        />
+        <img src="Images/service/sectors.png" alt="" className="mx-auto " />
       </div>
 
       {/* 🔹 Features Section */}

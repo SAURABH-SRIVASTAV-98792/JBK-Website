@@ -1,4 +1,5 @@
 import Crousel from "./Crousel";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -48,7 +49,21 @@ function Home() {
           ))}
         </div>
       </section>
+      {/* sector we serve */}
 
+      <section className="py-16">
+        <h1 className="text-5xl font-bold text-center mb-10 text-gray-800">
+          SECTOR WE SERVE
+        </h1>
+
+        <div className="hover:bg-violet-400 ">
+          <img
+            src="Images/service/sectors.png"
+            alt=""
+            className="p-5 mx-auto w-200 rounded-full"
+          />
+        </div>
+      </section>
       {/* 🔹 Products Title */}
       <section className="py-16">
         <h1 className="text-5xl font-bold text-center mb-10 text-gray-800">
@@ -78,14 +93,16 @@ function Home() {
         ].map((product, index) => (
           <div
             key={index}
-            className="bg-white rounded-2xl shadow-lg p-8 flex flex-col justify-between hover:shadow-2xl transition"
+            className="hover:bg-gradient-to-r from-violet-700 to-pink-400  bg-white rounded-2xl shadow-lg p-8 flex flex-col justify-between hover:shadow-2xl transition"
           >
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               {product.title}
             </h2>
-            <p className="text-lg text-gray-600 mb-6">{product.desc}</p>
+            <p className="hover:text-xl hover:text-white text-lg text-gray-600 mb-6">
+              {product.desc}
+            </p>
             <button className="self-start bg-violet-500 hover:bg-blue-600 text-white px-6 py-2 rounded-xl text-lg font-medium transition">
-              LEARN NOW
+              <Link to="/products">LEARN NOW</Link>
             </button>
           </div>
         ))}

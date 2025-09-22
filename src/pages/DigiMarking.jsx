@@ -6,6 +6,7 @@ import {
   FaDatabase,
 } from "react-icons/fa";
 import { FaClock, FaBalanceScale, FaLaptop, FaGlobe } from "react-icons/fa";
+import Scroll from "../Components/Scroll";
 
 const DigiMarking = () => {
   return (

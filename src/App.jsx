@@ -1,15 +1,13 @@
 import "./assets/index.css";
 import Navbar from "./Components/Navbar";
-import Services from "./Components/Services";
-import Contact from "./Components/Contact";
 import Footer from "./Components/Footer";
-import Sectors from "./Components/Sectors";
 import Home from "./Components/Home";
+import Sectors from "./Components/Sectors";
 import Career from "./Components/Career";
-import Clients from "./Components/Clients"; // ✅ fixed
+import Clients from "./Components/Clients";
 import Solutions from "./Components/Solutions";
+import Contact from "./Components/Contact";
 import Signin from "./Components/Signin";
-import { useState } from "react";
 import Products from "./Components/Products";
 
 import ApplicationMang from "./pages/ApplicationMang";
@@ -24,8 +22,10 @@ import DigitalGurukul from "./pages/DigitalGurukul";
 import QuestionPaperMang from "./pages/QuestionPaperMang";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { useState } from "react";
+import Scroll from "./Components/Scroll";
 
-// layout wrapper with navbar + footer
+// Layout wrapper with Navbar + Footer
 function Layout({ dark, setDark }) {
   return (
     <div
@@ -33,6 +33,7 @@ function Layout({ dark, setDark }) {
         dark ? "bg-black text-white" : "bg-white text-black"
       }`}
     >
+      <Scroll />
       <Navbar dark={dark} setDark={setDark} />
       <main className="flex-1">
         <Outlet /> {/* renders the current route */}
@@ -50,87 +51,29 @@ function App() {
       path: "/",
       element: <Layout dark={dark} setDark={setDark} />,
       children: [
-        {
-          path: "/",
-          element: <Home />,
-        },
-        {
-          path: "/service",
-          element: <Sectors />,
-        },
-        {
-          path: "/career",
-          element: <Career />,
-        },
-        {
-          path: "/clients",
-          element: <Clients />,
-        },
-        {
-          path: "/products",
-          element: <Products />,
-        },
-        {
-          path: "/solutions",
-          element: <Solutions />,
-        },
-        {
-          path: "/contact",
-          element: <Contact />,
-        },
-        {
-          path: "/signin",
-          element: <Signin />,
-        },
-        {
-          path: "/paper",
-          element: <QuestionPaperMang />,
-        },
-        {
-          path: "/app",
-          element: <ApplicationMang />,
-        },
-        {
-          path: "/allocation",
-          element: <AllocationMang />,
-        },
-        {
-          path: "/assessment",
-          element: <AssessmentMang />,
-        },
-        {
-          path: "/marking",
-          element: <DigiMarking />,
-        },
-        {
-          path: "/result",
-          element: <DigiResult />,
-        },
-        {
-          path: "/pariksha",
-          element: <DigitalPariksha />,
-        },
-        {
-          path: "/evaluation",
-          element: <DigitalEvaluation />,
-        },
-        {
-          path: "/scoring",
-          element: <DigitalScoring />,
-        },
-        {
-          path: "/gurukul",
-          element: <DigitalGurukul />,
-        },
+        { index: true, element: <Home /> }, // Home page
+        { path: "service", element: <Sectors /> }, // Sectors page
+        { path: "career", element: <Career /> },
+        { path: "clients", element: <Clients /> },
+        { path: "products", element: <Products /> },
+        { path: "solutions", element: <Solutions /> },
+        { path: "contact", element: <Contact /> },
+        { path: "signin", element: <Signin /> },
+        { path: "paper", element: <QuestionPaperMang /> },
+        { path: "app", element: <ApplicationMang /> },
+        { path: "allocation", element: <AllocationMang /> },
+        { path: "assessment", element: <AssessmentMang /> },
+        { path: "marking", element: <DigiMarking /> },
+        { path: "result", element: <DigiResult /> },
+        { path: "pariksha", element: <DigitalPariksha /> },
+        { path: "evaluation", element: <DigitalEvaluation /> },
+        { path: "scoring", element: <DigitalScoring /> },
+        { path: "gurukul", element: <DigitalGurukul /> },
       ],
     },
   ]);
 
-  return (
-    <>
-      <RouterProvider router={router} />
-    </>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
